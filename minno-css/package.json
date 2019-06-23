@@ -1,0 +1,13 @@
+{
+    "name": "minno-css",
+    "version": "1.0.0",
+    "description": "This is a super simple clone of some of the functionality of `jQuery.css`.",
+    "main": "css.js",
+    "scripts": {
+        "test": "jasmine css.spec.js"
+    },
+    "devDependencies": {
+        "jasmine": "^2.8.0",
+        "jsdom": "^11.4.0"
+    }
+}
