@@ -1,4 +1,4 @@
-define(['pipAPI', './biat6.js?' + Math.random()], function(APIConstructor, batExtension){
+define(['pipAPI', './js/biat_lib.js?' + Math.random()], function(APIConstructor, batExtension){
   var API    = new APIConstructor();
   var global = API.getGlobal();
 
@@ -8,6 +8,7 @@ define(['pipAPI', './biat6.js?' + Math.random()], function(APIConstructor, batEx
         name : global.pdLabel,
         title : {
           media : {word : global.ableLabel}, //Name of the category presented in the task.
+          size : {height: 475, width : 700},
           css : {color:'#31b404','font-size':'2em'}, //Style of the category title.
           height : 8, //Used to position the "Or" in the combined block.
           startStimulus : {

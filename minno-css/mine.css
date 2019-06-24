@@ -57,8 +57,9 @@ p {
   padding-left: 5px;
 }
 
-.stimulus img {
-  inset: 130px 130px auto auto !important;
+#canvas:nth-child(3) {
+  margin-top: 50px;
+  position: unset !important;
 }
 
 .section-progress {
