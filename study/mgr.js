@@ -9,7 +9,7 @@ define(['managerAPI'], function(Manager) {
     var timeURL  = '//cdn.jsdelivr.net/gh/minnojs/minno-time@0.3/dist/js';
 
     API.addGlobal({
-        pd_biat: {},    // this and the next to save results from IATs
+        // pd_biat: {},    // this and the next to save results from IATs
         id_iat: {},
         pd_iat: {},
 
@@ -95,13 +95,13 @@ define(['managerAPI'], function(Manager) {
             version:   0.3,
         }],
 
-        pd_biat: [{
-            baseUrl:   timeURL,
-            name:      'pd_biat',
-            scriptUrl: 'pd_biat.js?' + Math.random(),
-            type:      'pip',
-            version:   0.3,
-        }],
+        // pd_biat: [{
+        //     baseUrl:   timeURL,
+        //     name:      'pd_biat',
+        //     scriptUrl: 'pd_biat.js?' + Math.random(),
+        //     type:      'pip',
+        //     version:   0.3,
+        // }],
 
         pd_iat_instructions: [{
             inherit:     'instructions',
@@ -425,6 +425,7 @@ define(['managerAPI'], function(Manager) {
         }],
     });
 
+
     API.addSequence([
         // Each set of curly braces is a page.
         {inherit: 'realstart'},
@@ -436,58 +437,57 @@ define(['managerAPI'], function(Manager) {
             data: [
               // First clinical_scenario_, which is used to track improvement after patient-centered
               // teaching module
-              // {inherit: 'clinical_scenario_1'},
-              // {inherit: 'clinical_scenario_1_questions'},
-              // {inherit: 'clinical_scenario_2'},
-              // {inherit: 'clinical_scenario_2_questions'},
+              {inherit: 'clinical_scenario_1'},
+              {inherit: 'clinical_scenario_1_questions'},
+              {inherit: 'clinical_scenario_2'},
+              {inherit: 'clinical_scenario_2_questions'},
 
               // Demographics
-              // {inherit: 'demographics'},
+              {inherit: 'demographics'},
 
               // First IAT, for physical disabilities
               {inherit: 'pd_iat_instructions'},
-              {inherit: 'pd_biat'},
+              {inherit: 'pd_iat'},
 
-              // Second IAT, for intellectual disabilities
+              // // Second IAT, for intellectual disabilities
               {inherit: 'id_iat_instructions'},
               {inherit: 'id_iat'},
-              // // {inherit: 'instqst'}, Leave this out permanently?
 
               // Explaining patient-centered counseling
-              // {inherit: 'counseling_introduction'},
-              // {inherit: 'counseling_what_is_it'},
-              // {inherit: 'counseling_challenges'},
-              // {inherit: 'counseling_refs'},
+              {inherit: 'counseling_introduction'},
+              {inherit: 'counseling_what_is_it'},
+              {inherit: 'counseling_challenges'},
+              {inherit: 'counseling_refs'},
 
               // Patient-centered counseling scenarios for teaching
-              // {inherit: 'case_1_1'},
-              // {inherit: 'case_1_2'},
-              // {inherit: 'case_1_3'},
-              // {inherit: 'case_1_summary'},
+              {inherit: 'case_1_1'},
+              {inherit: 'case_1_2'},
+              {inherit: 'case_1_3'},
+              {inherit: 'case_1_summary'},
 
-              // {inherit: 'case_2_1'},
-              // {inherit: 'case_2_2'},
-              // {inherit: 'case_2_3'},
-              // {inherit: 'case_2_summary'},
+              {inherit: 'case_2_1'},
+              {inherit: 'case_2_2'},
+              {inherit: 'case_2_3'},
+              {inherit: 'case_2_summary'},
 
-              // {inherit: 'case_3_1'},
-              // {inherit: 'case_3_2'},
-              // {inherit: 'case_3_3'},
-              // {inherit: 'case_3_summary'},
+              {inherit: 'case_3_1'},
+              {inherit: 'case_3_2'},
+              {inherit: 'case_3_3'},
+              {inherit: 'case_3_summary'},
 
               // Patient-centered counseling scenarios for post–teaching module follow-up testing
-              // {inherit: 'clinical_scenario_3'},
-              // {inherit: 'clinical_scenario_3_questions'},
-              // {inherit: 'clinical_scenario_4'},
-              // {inherit: 'clinical_scenario_4_questions'},
+              {inherit: 'clinical_scenario_3'},
+              {inherit: 'clinical_scenario_3_questions'},
+              {inherit: 'clinical_scenario_4'},
+              {inherit: 'clinical_scenario_4_questions'},
 
+              // {inherit: 'debriefing'},
               // Write out answers
               {
                   type: 'postCsv',
                   url:  'csv.php',
               },
-              {inherit: 'debriefing'}, // This one has questions about the IAT
-              {inherit: 'lastpage'},   // Do I need this?
+              {inherit: 'lastpage'},
               {inherit: 'end'},
             ],
             elseData:[{inherit: 'thanks'}], // optional

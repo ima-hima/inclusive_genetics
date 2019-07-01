@@ -4848,7 +4848,7 @@ button.close {
   user-select: none; }
 [pi-player] #canvas {
   height: 400px;
-  width: 700px;
+  width: 500px;
   position: relative;
   border: 5px solid white;
   margin: auto;

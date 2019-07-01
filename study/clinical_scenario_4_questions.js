@@ -36,7 +36,7 @@ define(['questAPI'], function(Quest){
                 { // question 4 begins
                     name: 'question4',
                     type: 'selectOne',
-                    stem: 'If you were personally the patient, would you get prenatal genetic testing for AT?',
+                    stem: 'If you were personally the patient, would you get prenatal genetic testing for DS?',
                     autoSubmit: false,
                     answers: [
                                'Yes',

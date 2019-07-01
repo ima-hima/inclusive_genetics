@@ -57,7 +57,7 @@ define(['questAPI'], function(Quest){
                         '<p>The sorting test you just took is called the Implicit Association Test (IAT). You first categorized good and bad words with images of <%= global.pdLabel %>, then you categorized good and bad words with labels describing <%= global.idLabel %>.</p>' ,
                         '<div class="jumbotron jumbotron-dark">' ,
                         '<h2>Here are your results:</h2>' ,
-                        '<p><%= global.pd_biat.feedback %></p>' ,
+                        '<p><%= global.pd_iat.feedback %></p>' ,
                         '</div>' ,
 
                         '<div class="jumbotron jumbotron-dark">' ,

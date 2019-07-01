@@ -11,9 +11,9 @@ define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.2.1/stiat/st
       // Define the category.
       category:
       {
-        name: 'Intellectual disability', // Category label.
+        name: global.idLabel, // Category label.
         title: {
-          media: {word: 'Intellectual disability'}, // Name of the category presented in the task.
+          media: {word: global.idLabel}, // Name of the category presented in the task.
           css: {color:'#31940F','font-size':'2.3em'}, // Style of the category title.
           height: 4 // Used to position the "Or" in the combined block.
         },
