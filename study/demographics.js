@@ -96,19 +96,41 @@ define(['questAPI', 'underscore'], function(Quest, _){
         ]
     });
 
+    /////// Kill this!!
     API.addQuestionsSet('education', {
         inherit: 'singleChoice',
         name:    'education',
         stem:    'What is your highest level of education?',
         answers: [
-            {text:'MD',        value:1},
-            {text:'PhD',       value:2},
-            {text:'MS',        value:3},
-            {text:'Bachelors', value:4},
-            {text:'Other',     value:5},
+            {text:'MD',        value: 1},
+            {text:'PhD',       value: 2},
+            {text:'MS',        value: 3},
+            {text:'Bachelors', value: 4},
+            {text:'Other',     value: 5},
         ]
     });
 
+    /////// New question!!
+    // what is your work setting?
+    // clinical lab
+    // clinical patient-facing
+    // research
+    // other
+
+
+    /////// Replace below!!
+    // What is your role in a clinical setting?
+    // N/A
+    // MD (medical geneticist)
+    // MD (other)
+    // Genetic counselor
+    // Nurse
+    // Other allied health professional
+    // 'Resident',
+    // 'Medical student',
+    // 'Fellow',
+    // 'GC student',
+    // 'Other',
     API.addQuestionsSet('work_setting', {
         inherit: 'singleChoice',
         name:    'work_setting',

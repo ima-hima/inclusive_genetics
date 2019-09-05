@@ -481,7 +481,7 @@ define(['managerAPI'], function(Manager) {
               {inherit: 'clinical_scenario_4'},
               {inherit: 'clinical_scenario_4_questions'},
 
-              // {inherit: 'debriefing'},
+              {inherit: 'debriefing'},
               // Write out answers
               {
                   type: 'postCsv',

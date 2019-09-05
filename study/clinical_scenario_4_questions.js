@@ -8,7 +8,7 @@ define(['questAPI'], function(Quest){
                 { // question 1 begins
                     name: 'question1',
                     type: 'selectOne',
-                    stem: 'The couple tell you they would terminate the pregnancy if the fetus was found to have Down Syndrome. If you were the patient’s healthcare provider, how would you counsel the couple about testing?',
+                    stem: 'The couple tells you they would terminate the pregnancy if the fetus was found to have Down Syndrome. If you were the patient’s healthcare provider, how would you counsel the couple about testing?',
                     autoSubmit: false,
                     answers: [
                                'Strongly recommend prenatal testing',
