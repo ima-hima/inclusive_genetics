@@ -9,7 +9,6 @@ define(['managerAPI'], function(Manager) {
     var timeURL  = '//cdn.jsdelivr.net/gh/minnojs/minno-time@0.3/dist/js';
 
     API.addGlobal({
-        // pd_biat: {},    // this and the next to save results from IATs
         id_iat: {},
         pd_iat: {},
 
@@ -104,14 +103,6 @@ define(['managerAPI'], function(Manager) {
             version:   0.3,
         }],
 
-        // pd_biat: [{
-        //     baseUrl:   timeURL,
-        //     name:      'pd_biat',
-        //     scriptUrl: 'pd_biat.js?' + Math.random(),
-        //     type:      'pip',
-        //     version:   0.3,
-        // }],
-
         pd_iat_instructions: [{
             inherit:     'instructions',
             name:        'pd_iat_instructions',
@@ -127,23 +118,6 @@ define(['managerAPI'], function(Manager) {
             scriptUrl: 'pd_iat.js?' + Math.random(),
             type:      'pip',
             version:   0.3,
-        }],
-
-        raceiat: [{
-            baseUrl: timeURL,
-            name: 'raceiat',
-            scriptUrl: 'raceiat.js?' + Math.random(),
-            type: 'pip',
-            version: 0.3,
-        }],
-
-        raceiat_instructions: [{
-            inherit: 'instructions',
-            name: 'raceiat_instructions',
-            templateUrl: 'raceiat_instructions.jst?' + Math.random(),
-            title: 'IAT Instructions',
-            piTemplate: true,
-            header: 'Implicit Association Test',
         }],
 
         counseling_introduction: [{
