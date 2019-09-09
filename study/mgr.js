@@ -12,7 +12,7 @@ define(['managerAPI'], function(Manager) {
         id_iat: {},
         pd_iat: {},
 
-        mediaURL:  mediaURL,
+        mediaURL:     mediaURL,
         idLabel:      'Intellectually disabled',
         pdLabel:      'Physically disabled',
         ableLabel:    'Abled persons',
@@ -73,7 +73,7 @@ define(['managerAPI'], function(Manager) {
             // inherit:    'instructions',
             name:       'participation',
             scriptUrl:  'participation.js?' + Math.random(),
-            title:      'Participation',
+            title:      'Project Inclusive Genetics',
             piTemplate:  true,
             header:     'Welcome',
         }],
@@ -82,9 +82,9 @@ define(['managerAPI'], function(Manager) {
             inherit:     'instructions',
             name:        'disclaimer',
             templateUrl: 'disclaimer.jst?' + Math.random(),
-            title:       'CMU/CME disclaimer',
+            title:       'Continuing Education disclaimer',
             piTemplate:   true,
-            header:      'CMU/CME disclaimer',
+            header:      'Continuing Education disclaimer',
         }],
 
         id_iat_instructions: [{
@@ -242,6 +242,16 @@ define(['managerAPI'], function(Manager) {
             header:     'Scenario Four Questions',
         }],
 
+        console_check: [{
+            type:       'quest',
+            // inherit:    'instructions',
+            name:       'console_check',
+            scriptUrl:  'console_check.js?' + Math.random(),
+            title:      'Scenario Four Questions',
+            piTemplate:  true,
+            header:     'Scenario Four Questions',
+        }],
+
         case_1_1: [{
             inherit:     'instructions', // For some reason I have to do this to get past the questions.
             name:        'case_1_1',
@@ -374,11 +384,11 @@ define(['managerAPI'], function(Manager) {
             scriptUrl: 'continuing_ed_questions.js?' + Math.random(),
         }],
 
-        lastpage: [{
+        iat_results: [{
             type: 'message',
-            name: 'lastpage',
-            templateUrl: 'lastpage.jst?' + Math.random(),
-            title: 'End',
+            name: 'iat_results',
+            templateUrl: 'iat_results.jst?' + Math.random(),
+            title: 'Final results',
             piTemplate: true,
             buttonHide: true,
             last:true,
@@ -389,22 +399,22 @@ define(['managerAPI'], function(Manager) {
             type:        'message',
             name:        'course_goals',
             templateUrl: 'course_goals.jst?' + Math.random(),
-            title:       'End',
+            title:       'Thank You',
             piTemplate:  true,
             buttonHide:  true,
             last:        true,
             header:      'You have completed the study'
         }],
 
-        thanks: [{
+        declined: [{
             type:        'message',
-            name:        'thanks',
-            templateUrl: 'thanks.jst?' + Math.random(),
+            name:        'declined',
+            templateUrl: 'declined.jst?' + Math.random(),
             title:       'Thank You',
             piTemplate:  true,
             buttonHide:  true,
             last:        true,
-            header:      'You have completed the study'
+            header:      'Declined',
         }],
     });
 
@@ -415,13 +425,13 @@ define(['managerAPI'], function(Manager) {
         { // If they decline to participate scourse_goals them to thanks anyway.
           mixer: 'branch',
           conditions: [
-            {compare: "I agree to participate", to: 'questions.participate.response'} // figuring out that the question was in the quesiton object and that there wasn't a participation object. Also, you can't have a . in the comparison or it won't parse correctly. I didn't try with a variable, maybe that'd fix it.
+            {compare: 'global.participation.questions.participate.response', to: "I agree to participate"} // figuring out that the question was in the quesiton object and that there wasn't a participation object. Also, you can't have a . in the comparison or it won't parse correctly. I didn't try with a variable, maybe that'd fix it.
           ],
           data: [
             {  // now, continuing ed credit? If so display disclaimer
               mixer: 'branch',
               conditions: [
-                {compare: "Yes", to: 'questions.cmeCeu.response'}
+                {compare: 'global.participation.questions.cmeCeu.response', to: "Yes"}
               ],
               data: [
                 {inherit: 'disclaimer'}
@@ -431,6 +441,7 @@ define(['managerAPI'], function(Manager) {
             // First clinical_scenario_, which is used to track improvement after patient-centered teaching module
             {inherit: 'clinical_scenario_1'},
             {inherit: 'clinical_scenario_1_questions'},
+
             {inherit: 'clinical_scenario_2'},
             {inherit: 'clinical_scenario_2_questions'},
 
@@ -441,7 +452,7 @@ define(['managerAPI'], function(Manager) {
             // {inherit: 'pd_iat_instructions'},
             // {inherit: 'pd_iat'},
 
-            // // // Second IAT, for intellectual disabilities
+            // Second IAT, for intellectual disabilities
             // {inherit: 'id_iat_instructions'},
             // {inherit: 'id_iat'},
 
@@ -451,7 +462,7 @@ define(['managerAPI'], function(Manager) {
             {inherit: 'counseling_challenges'},
             {inherit: 'counseling_refs'},
 
-            // // Patient-centered counseling scenarios for teaching
+            // Patient-centered counseling scenarios for teaching
             {inherit: 'case_1_1'},
             {inherit: 'case_1_2'},
             {inherit: 'case_1_3'},
@@ -470,27 +481,27 @@ define(['managerAPI'], function(Manager) {
             // Patient-centered counseling scenarios for post–teaching module follow-up testing
             {inherit: 'clinical_scenario_3'},
             {inherit: 'clinical_scenario_3_questions'},
+
             {inherit: 'clinical_scenario_4'},
             {inherit: 'clinical_scenario_4_questions'},
-
+            // {inherit: 'console_check'},
             {inherit: 'course_goals'},
-            {  // check again for continuing ed credit and give quiz
+            {  // Continuing ed credit? If so display quiz
               mixer: 'branch',
               conditions: [
-                {compare: "Yes", to: 'questions.cmeCeu.response'}
+                {compare: 'global.participation.questions.cmeCeu.response', to: "Yes"}
               ],
               data: [
                 {inherit: 'continuing_ed_questions'}
               ],
             },
-            // Write out answers
             {
                 type: 'postCsv',
                 url:  'csv.php',
             },
-            {inherit: 'lastpage'},
+            {inherit: 'iat_results'},
           ],
-          elseData:[{inherit: 'thanks'}], // if they didn't participate
+          elseData:[{inherit: 'declined'}], // if they didn't participate
         }
     ]);
     return API.script;
