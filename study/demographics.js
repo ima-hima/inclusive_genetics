@@ -9,7 +9,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
     API.addSettings('logger', { pulse: 3 });
 
     /**
-     * Page prototype
+     * Page
      */
     API.addPagesSet('basicPage', {
         noSubmit:    false, //Change to true if you don't want to show the submit button.
@@ -74,9 +74,8 @@ define(['questAPI', 'underscore'], function(Quest, _){
     });
 
     /**
-     * Actual questions
+     * Questions
      */
-
     API.addQuestionsSet('age', {
         inherit: 'text',
         name:    'age',
@@ -93,20 +92,6 @@ define(['questAPI', 'underscore'], function(Quest, _){
             {text: 'Female',               value: 2},
             {text: 'Nonbinary',            value: 3},
             {text: 'Prefer not to answer', value: 4},
-        ]
-    });
-
-    /////// Kill this!!
-    API.addQuestionsSet('education', {
-        inherit: 'singleChoice',
-        name:    'education',
-        stem:    'What is your highest level of education?',
-        answers: [
-            {text:'MD',        value: 1},
-            {text:'PhD',       value: 2},
-            {text:'MS',        value: 3},
-            {text:'Bachelors', value: 4},
-            {text:'Other',     value: 5},
         ]
     });
 
@@ -427,10 +412,6 @@ define(['questAPI', 'underscore'], function(Quest, _){
         ]
     });
 
-
-    // if (isTouch) API.addSequence([
-    //    ]);
-
     API.addSequence([
         {
             inherit: 'basicPage',
@@ -442,12 +423,6 @@ define(['questAPI', 'underscore'], function(Quest, _){
             inherit: 'basicPage',
             questions: [
                 {inherit: 'genderIdentity'}
-            ]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [
-                {inherit: 'education'}
             ]
         },
         {

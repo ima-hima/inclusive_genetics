@@ -22,9 +22,9 @@ define(['managerAPI'], function(Manager) {
             'Lovely',
             'Fabulous',
             'Attractive',
-            'Friend',
+            'Fricourse_goals',
             'Fantastic',
-            'Friendship',
+            'Fricourse_goalsship',
             'Cherish',
             'Magnificent',
         ]),
@@ -51,7 +51,7 @@ define(['managerAPI'], function(Manager) {
            mediaURL + 'abled4.png',
         ]),
         intellectually_disabled_words : API.shuffle([
-          'Dependent',
+          'Depcourse_goalsent',
           'Mental handicap',
           'Slow learner',
           'Impaired',
@@ -154,12 +154,6 @@ define(['managerAPI'], function(Manager) {
             title:       'Patient-Centered Counseling Challenges',
             piTemplate:   true,
             header:      'Patient-Centered Counseling Challenges',
-        }],
-
-        debriefing: [{
-            type: 'quest',
-            name: 'debriefing',
-            scriptUrl: 'debriefing.js?' + Math.random(),
         }],
 
         demographics: [{
@@ -374,6 +368,12 @@ define(['managerAPI'], function(Manager) {
             header:      'Fourth Case',
         }],
 
+        continuing_ed_questions: [{
+            type: 'quest',
+            name: 'continuing_ed_questions',
+            scriptUrl: 'continuing_ed_questions.js?' + Math.random(),
+        }],
+
         lastpage: [{
             type: 'message',
             name: 'lastpage',
@@ -385,10 +385,10 @@ define(['managerAPI'], function(Manager) {
             header: 'You have completed the study'
         }],
 
-        end: [{
+        course_goals: [{
             type:        'message',
-            name:        'end',
-            templateUrl: 'end.jst?' + Math.random(),
+            name:        'course_goals',
+            templateUrl: 'course_goals.jst?' + Math.random(),
             title:       'End',
             piTemplate:  true,
             buttonHide:  true,
@@ -412,7 +412,7 @@ define(['managerAPI'], function(Manager) {
     API.addSequence([
         // Each set of curly braces is a page.
         {inherit: 'realstart'},
-        { // If they decline to participate send them to thanks anyway.
+        { // If they decline to participate scourse_goals them to thanks anyway.
           mixer: 'branch',
           conditions: [
             {compare: "I agree to participate", to: 'questions.participate.response'} // figuring out that the question was in the quesiton object and that there wasn't a participation object. Also, you can't have a . in the comparison or it won't parse correctly. I didn't try with a variable, maybe that'd fix it.
@@ -426,20 +426,20 @@ define(['managerAPI'], function(Manager) {
               data: [
                 {inherit: 'disclaimer'}
               ],
-            }, // end continuing ed credit
+            }, // course_goals continuing ed credit
             // First clinical_scenario_, which is used to track improvement after patient-centered
               // teaching module
-            {inherit: 'clinical_scenario_1'},
-            {inherit: 'clinical_scenario_1_questions'},
-            {inherit: 'clinical_scenario_2'},
-            {inherit: 'clinical_scenario_2_questions'},
+            // {inherit: 'clinical_scenario_1'},
+            // {inherit: 'clinical_scenario_1_questions'},
+            // {inherit: 'clinical_scenario_2'},
+            // {inherit: 'clinical_scenario_2_questions'},
 
             // Demographics
             // {inherit: 'demographics'},
 
             // First IAT, for physical disabilities
-            {inherit: 'pd_iat_instructions'},
-            {inherit: 'pd_iat'},
+            // {inherit: 'pd_iat_instructions'},
+            // {inherit: 'pd_iat'},
 
             // // // Second IAT, for intellectual disabilities
             // {inherit: 'id_iat_instructions'},
@@ -473,17 +473,25 @@ define(['managerAPI'], function(Manager) {
             // {inherit: 'clinical_scenario_4'},
             // {inherit: 'clinical_scenario_4_questions'},
 
-            // {inherit: 'debriefing'},
+            {inherit: 'course_goals'},
+            {  // now, continuring ed credit
+              mixer: 'branch',
+              conditions: [
+                {compare: "Yes", to: 'questions.cmeCeu.response'}
+              ],
+              data: [
+                {inherit: 'continuing_ed_questions'}
+              ],
+            },
             // Write out answers
             {
                 type: 'postCsv',
                 url:  'csv.php',
             },
             {inherit: 'lastpage'},
-            {inherit: 'end'},
           ],
           elseData:[{inherit: 'thanks'}], // optional
         }
-    ]); // end add sequence
+    ]);
     return API.script;
 });
