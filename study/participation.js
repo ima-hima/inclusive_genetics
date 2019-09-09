@@ -20,6 +20,11 @@ define(['questAPI'], function(Quest){
                     name: 'email',
                     type: 'text',
                     stem: 'Please enter your email address',
+                    pattern: /[A-Z0-9\._%+-]+@[A-Z0-9\.-]{2,}\.[A-Z]{2,}/igm,
+                    errorMsg: {
+                        required: "You must enter a valid email address.",
+                        pattern: "This is not a valid email address.",
+                    },
                     required: false,
                 },
                 {

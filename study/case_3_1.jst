@@ -30,10 +30,12 @@ Case 3 of 3</div>
 
             <li class="box" onclick="document.getElementById('question3').style.display = 'block';"><p>Yes, further testing is available to test the baby, but there is a 50% chance you wouldn’t need further testing.</p>
             <div class="guidance" id="question3"><p><em>Guidance:</em> While providing accurate risk information is very important, this statement minimizes the fact that S has expressed reservations about whether she wants to pursue carrier screening because she is not sure she wants to know her own genetic status. This approach also does not provide S any anticipatory guidance, if she should test positive.</p></div></li>
-
         </ol>
+        <button type="button" class="btn btn-primary" style="margin: 30px auto 10px;" onclick="revealAll();">
+            Reveal all guidance
+        </button>
 
-        <div class="text-center proceed" style="margin: 30px auto 10px;">
+        <div id="button" class="text-center proceed" style="margin: 30px auto 10px; display: none;">
             <button pi-message-done type="button" class="btn btn-primary"> Continue </button>
         </div>
     </div>

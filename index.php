@@ -29,6 +29,18 @@
       @media screen and (orientation: portrait) {.pi-spinner { max-width: 90%; }}
       @media screen and (orientation: landscape) {.pi-spinner { max-height: 90%; }}
     </style>
+
+    <script type="text/javascript">
+      // for "reveal all" buttons on individual case pages
+      function revealAll() {
+        var elems = document.getElementsByClassName('guidance');
+        for (i = 0; i < elems.length; i++) {
+          elems[i].style.display = 'block';
+        }
+        document.getElementById('button').style.display = 'block';
+      }
+    </script>
+
   </head>
 
   <body>

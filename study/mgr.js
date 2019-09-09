@@ -418,7 +418,7 @@ define(['managerAPI'], function(Manager) {
             {compare: "I agree to participate", to: 'questions.participate.response'} // figuring out that the question was in the quesiton object and that there wasn't a participation object. Also, you can't have a . in the comparison or it won't parse correctly. I didn't try with a variable, maybe that'd fix it.
           ],
           data: [
-            {  // now, continuring ed credit?
+            {  // now, continuing ed credit? If so display disclaimer
               mixer: 'branch',
               conditions: [
                 {compare: "Yes", to: 'questions.cmeCeu.response'}
@@ -426,13 +426,13 @@ define(['managerAPI'], function(Manager) {
               data: [
                 {inherit: 'disclaimer'}
               ],
-            }, // course_goals continuing ed credit
-            // First clinical_scenario_, which is used to track improvement after patient-centered
-              // teaching module
-            // {inherit: 'clinical_scenario_1'},
-            // {inherit: 'clinical_scenario_1_questions'},
-            // {inherit: 'clinical_scenario_2'},
-            // {inherit: 'clinical_scenario_2_questions'},
+            },
+
+            // First clinical_scenario_, which is used to track improvement after patient-centered teaching module
+            {inherit: 'clinical_scenario_1'},
+            {inherit: 'clinical_scenario_1_questions'},
+            {inherit: 'clinical_scenario_2'},
+            {inherit: 'clinical_scenario_2_questions'},
 
             // Demographics
             // {inherit: 'demographics'},
@@ -446,35 +446,35 @@ define(['managerAPI'], function(Manager) {
             // {inherit: 'id_iat'},
 
             // Explaining patient-centered counseling
-            // {inherit: 'counseling_introduction'},
-            // {inherit: 'counseling_what_is_it'},
-            // {inherit: 'counseling_challenges'},
-            // {inherit: 'counseling_refs'},
+            {inherit: 'counseling_introduction'},
+            {inherit: 'counseling_what_is_it'},
+            {inherit: 'counseling_challenges'},
+            {inherit: 'counseling_refs'},
 
             // // Patient-centered counseling scenarios for teaching
-            // {inherit: 'case_1_1'},
-            // {inherit: 'case_1_2'},
-            // {inherit: 'case_1_3'},
-            // {inherit: 'case_1_summary'},
+            {inherit: 'case_1_1'},
+            {inherit: 'case_1_2'},
+            {inherit: 'case_1_3'},
+            {inherit: 'case_1_summary'},
 
-            // {inherit: 'case_2_1'},
-            // {inherit: 'case_2_2'},
-            // {inherit: 'case_2_3'},
-            // {inherit: 'case_2_summary'},
+            {inherit: 'case_2_1'},
+            {inherit: 'case_2_2'},
+            {inherit: 'case_2_3'},
+            {inherit: 'case_2_summary'},
 
-            // {inherit: 'case_3_1'},
-            // {inherit: 'case_3_2'},
-            // {inherit: 'case_3_3'},
-            // {inherit: 'case_3_summary'},
+            {inherit: 'case_3_1'},
+            {inherit: 'case_3_2'},
+            {inherit: 'case_3_3'},
+            {inherit: 'case_3_summary'},
 
-            // // Patient-centered counseling scenarios for post–teaching module follow-up testing
-            // {inherit: 'clinical_scenario_3'},
-            // {inherit: 'clinical_scenario_3_questions'},
-            // {inherit: 'clinical_scenario_4'},
-            // {inherit: 'clinical_scenario_4_questions'},
+            // Patient-centered counseling scenarios for post–teaching module follow-up testing
+            {inherit: 'clinical_scenario_3'},
+            {inherit: 'clinical_scenario_3_questions'},
+            {inherit: 'clinical_scenario_4'},
+            {inherit: 'clinical_scenario_4_questions'},
 
             {inherit: 'course_goals'},
-            {  // now, continuring ed credit
+            {  // check again for continuing ed credit and give quiz
               mixer: 'branch',
               conditions: [
                 {compare: "Yes", to: 'questions.cmeCeu.response'}
@@ -490,7 +490,7 @@ define(['managerAPI'], function(Manager) {
             },
             {inherit: 'lastpage'},
           ],
-          elseData:[{inherit: 'thanks'}], // optional
+          elseData:[{inherit: 'thanks'}], // if they didn't participate
         }
     ]);
     return API.script;
