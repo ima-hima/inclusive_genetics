@@ -79,6 +79,15 @@ define(['managerAPI'], function(Manager) {
             header:     'Welcome',
         }],
 
+        disclaimer: [{
+            inherit:     'instructions',
+            name:        'disclaimer',
+            templateUrl: 'disclaimer.jst?' + Math.random(),
+            title:       'CMU/CME disclaimer',
+            piTemplate:   true,
+            header:      'CMU/CME disclaimer',
+        }],
+
         id_iat_instructions: [{
             inherit:     'instructions',
             name:        'id_iat_instructions',
@@ -430,69 +439,77 @@ define(['managerAPI'], function(Manager) {
         // Each set of curly braces is a page.
         {inherit: 'realstart'},
         { // If they decline to participate send them to thanks anyway.
-            mixer:'branch',
-            conditions: [
-              {compare: "I agree to participate", to: 'questions.participate.response'} // figuring out that the question was in the quesiton object and that there wasn't a participation object. Also, you can't have a . in the comparison or it won't parse correctly. I didn't try with a variable, maybe that'd fix it.
-            ],
-            data: [
-              // First clinical_scenario_, which is used to track improvement after patient-centered
+          mixer: 'branch',
+          conditions: [
+            {compare: "I agree to participate", to: 'questions.participate.response'} // figuring out that the question was in the quesiton object and that there wasn't a participation object. Also, you can't have a . in the comparison or it won't parse correctly. I didn't try with a variable, maybe that'd fix it.
+          ],
+          data: [
+            {  // now, continuring ed credit?
+              mixer: 'branch',
+              conditions: [
+                {compare: "Yes", to: 'questions.cmeCeu.response'}
+              ],
+              data: [
+                {inherit: 'disclaimer'}
+              ],
+            }, // end continuing ed credit
+            // First clinical_scenario_, which is used to track improvement after patient-centered
               // teaching module
-              {inherit: 'clinical_scenario_1'},
-              {inherit: 'clinical_scenario_1_questions'},
-              {inherit: 'clinical_scenario_2'},
-              {inherit: 'clinical_scenario_2_questions'},
+            {inherit: 'clinical_scenario_1'},
+            {inherit: 'clinical_scenario_1_questions'},
+            {inherit: 'clinical_scenario_2'},
+            {inherit: 'clinical_scenario_2_questions'},
 
-              // Demographics
-              {inherit: 'demographics'},
+            // Demographics
+            // {inherit: 'demographics'},
 
-              // First IAT, for physical disabilities
-              {inherit: 'pd_iat_instructions'},
-              {inherit: 'pd_iat'},
+            // First IAT, for physical disabilities
+            {inherit: 'pd_iat_instructions'},
+            {inherit: 'pd_iat'},
 
-              // // Second IAT, for intellectual disabilities
-              {inherit: 'id_iat_instructions'},
-              {inherit: 'id_iat'},
+            // // // Second IAT, for intellectual disabilities
+            // {inherit: 'id_iat_instructions'},
+            // {inherit: 'id_iat'},
 
-              // Explaining patient-centered counseling
-              {inherit: 'counseling_introduction'},
-              {inherit: 'counseling_what_is_it'},
-              {inherit: 'counseling_challenges'},
-              {inherit: 'counseling_refs'},
+            // Explaining patient-centered counseling
+            // {inherit: 'counseling_introduction'},
+            // {inherit: 'counseling_what_is_it'},
+            // {inherit: 'counseling_challenges'},
+            // {inherit: 'counseling_refs'},
 
-              // Patient-centered counseling scenarios for teaching
-              {inherit: 'case_1_1'},
-              {inherit: 'case_1_2'},
-              {inherit: 'case_1_3'},
-              {inherit: 'case_1_summary'},
+            // // Patient-centered counseling scenarios for teaching
+            // {inherit: 'case_1_1'},
+            // {inherit: 'case_1_2'},
+            // {inherit: 'case_1_3'},
+            // {inherit: 'case_1_summary'},
 
-              {inherit: 'case_2_1'},
-              {inherit: 'case_2_2'},
-              {inherit: 'case_2_3'},
-              {inherit: 'case_2_summary'},
+            // {inherit: 'case_2_1'},
+            // {inherit: 'case_2_2'},
+            // {inherit: 'case_2_3'},
+            // {inherit: 'case_2_summary'},
 
-              {inherit: 'case_3_1'},
-              {inherit: 'case_3_2'},
-              {inherit: 'case_3_3'},
-              {inherit: 'case_3_summary'},
+            // {inherit: 'case_3_1'},
+            // {inherit: 'case_3_2'},
+            // {inherit: 'case_3_3'},
+            // {inherit: 'case_3_summary'},
 
-              // Patient-centered counseling scenarios for post–teaching module follow-up testing
-              {inherit: 'clinical_scenario_3'},
-              {inherit: 'clinical_scenario_3_questions'},
-              {inherit: 'clinical_scenario_4'},
-              {inherit: 'clinical_scenario_4_questions'},
+            // // Patient-centered counseling scenarios for post–teaching module follow-up testing
+            // {inherit: 'clinical_scenario_3'},
+            // {inherit: 'clinical_scenario_3_questions'},
+            // {inherit: 'clinical_scenario_4'},
+            // {inherit: 'clinical_scenario_4_questions'},
 
-              {inherit: 'debriefing'},
-              // Write out answers
-              {
-                  type: 'postCsv',
-                  url:  'csv.php',
-              },
-              {inherit: 'lastpage'},
-              {inherit: 'end'},
-            ],
-            elseData:[{inherit: 'thanks'}], // optional
-        },
-    ]);
-
+            // {inherit: 'debriefing'},
+            // Write out answers
+            {
+                type: 'postCsv',
+                url:  'csv.php',
+            },
+            {inherit: 'lastpage'},
+            {inherit: 'end'},
+          ],
+          elseData:[{inherit: 'thanks'}], // optional
+        }
+    ]); // end add sequence
     return API.script;
 });

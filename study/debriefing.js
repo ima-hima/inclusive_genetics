@@ -47,7 +47,7 @@ define(['questAPI'], function(Quest){
 
     API.addSequence([
         {
-            header: 'Debriefing',
+            header: 'Module Complete! Please review your scores below',
             questions:[
                 {
                     type:'info',
@@ -96,6 +96,12 @@ define(['questAPI'], function(Quest){
             ],
         },
     ]);
+    var str = JSON.stringify(global);
+    var str2 = JSON.stringify(global.pd_iat);
+str = JSON.stringify(global, null, 4);
+console.log(str);
+console.log(str2);
+
 
     return API.script;
 });

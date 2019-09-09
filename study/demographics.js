@@ -110,40 +110,34 @@ define(['questAPI', 'underscore'], function(Quest, _){
         ]
     });
 
-    /////// New question!!
-    // what is your work setting?
-    // clinical lab
-    // clinical patient-facing
-    // research
-    // other
-
-
-    /////// Replace below!!
-    // What is your role in a clinical setting?
-    // N/A
-    // MD (medical geneticist)
-    // MD (other)
-    // Genetic counselor
-    // Nurse
-    // Other allied health professional
-    // 'Resident',
-    // 'Medical student',
-    // 'Fellow',
-    // 'GC student',
-    // 'Other',
     API.addQuestionsSet('work_setting', {
         inherit: 'singleChoice',
         name:    'work_setting',
         stem:    'What is your work setting?',
         answers: [
-            {text: 'Clinical (private, academic)', value:1},
-            {text: 'Clinical laboratory (academic, commercial)', value:2},
-            {text: 'Research',        value: 3},
-            {text: 'Resident',        value: 4},
-            {text: 'Medical student', value: 5},
-            {text: 'Fellow',          value: 6},
-            {text: 'GC student',      value: 7},
-            {text: 'Other',           value: 8},
+            {text: 'Clinical laboratory',     value: 1},
+            {text: 'Clinical patient-facing', value: 2},
+            {text: 'Research',                value: 3},
+            {text: 'Other',                   value: 4},
+        ]
+    });
+
+    API.addQuestionsSet('clinical_setting', {
+        inherit: 'singleChoice',
+        name:    'clinical_setting',
+        stem:    'What is your role in a clinical setting?',
+        answers: [
+            {text: 'N/A',                     value: 1},
+            {text: 'MD (medical geneticist)', value: 2},
+            {text: 'MD (other)',              value: 3},
+            {text: 'Genetic counselor',       value: 4},
+            {text: 'Nurse',                   value: 5},
+            {text: 'Other allied health professional', value: 6},
+            {text: 'Resident',                value: 7},
+            {text: 'Medical student',         value: 8},
+            {text: 'Fellow',                  value: 9},
+            {text: 'GC student',              value: 10},
+            {text: 'Other',                   value:11},
         ]
     });
 
@@ -225,10 +219,10 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name:    'religionid',
         stem:    'How religious do you consider yourself to be?',
         answers: [
-            {text: 'Very religious',       value:1},
-            {text: 'Somewhat religious',   value:2},
-            {text: 'Not very religious',   value:3},
-            {text: 'Not at all religious', value:4},
+            {text: 'Very religious',       value: 1},
+            {text: 'Somewhat religious',   value: 2},
+            {text: 'Not very religious',   value: 3},
+            {text: 'Not at all religious', value: 4},
         ]
     });
 

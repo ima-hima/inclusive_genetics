@@ -1,5 +1,6 @@
 define(['questAPI'], function(Quest){
     var API = new Quest();
+    var global = API.getGlobal();
 
     API.addSequence([
         { // page begins
@@ -75,9 +76,8 @@ define(['questAPI'], function(Quest){
                     ],
                     required: true,
                 },
-            ]
+            ] // end questions
         } // page ends
     ]);
-
     return API.script;
 });
