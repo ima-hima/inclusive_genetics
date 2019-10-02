@@ -11,6 +11,7 @@
     <meta name="viewport" content="user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1" />
     <meta name="pinterest" content="nopin" />
 
+    <script src="./js/jQuery_3-4-1.js" type="text/javascript"></script>
     <link rel="stylesheet" href="minno-css/main.css" />
     <link rel="stylesheet" href="minno-css/mine.css" />
     <!-- direct link to glyphicons because CORS is not allowing us to download from PI-->
@@ -37,8 +38,49 @@
         for (i = 0; i < elems.length; i++) {
           elems[i].style.display = 'block';
         }
-        document.getElementById('button').style.display = 'block';
+        document.getElementById('continue_btn').style.display = 'block';
       }
+
+      function showGuidance(exampleElement) {
+          console.log(exampleElement.lastChild); // = 'block';
+          exampleElement.lastChild.style.display = "block";
+          document.getElementById('reveal_btn').style.display = 'block';
+      }
+
+      // $( document ).ready( function() {
+      //     // $(document).click(function(){
+      //     //     console.log('clicked at all')
+      //     // });
+      //   console.log('ready');
+      //   // One of answer buttons must be clicked before "reveal all" button appears.
+      //   $( ".answer" ).click(function() {
+      //       console.log('clicked answer');
+      //     console.log( $(this).children(":first").css("display") );
+      //     // $(this).next().css( "display", "block" );
+      //     // $( "#reveal_btn" ).css( "display", "block" );
+      //   });
+
+      //   $( ".panel-body" ).click(function() {
+      //       console.log('clicked body');
+      //     // console.log( $(this).next().css("display") );
+      //     // $(this).next().css( "display", "block" );
+      //     // $( "#reveal_btn" ).css( "display", "block" );
+      //   });
+
+      //   // When "reveal all" button is clicked all answers are revealed, as is "continue" button.
+      //   $( "#reveal_btn" ).click(function() {
+      //       console.log('clicked reveal');
+      //       $( ".guidance" ).each(function() {
+      //           $( this ).css( "display", "block" );
+      //       });
+      //       $( "#continue_button" ).css( "display", "block" );
+      //       // document.getElementsByClassName('guidance');
+      //       // for (i = 0; i < elems.length; i++) {
+      //       //   elems[i].style.display = 'block';
+      //       // }
+      //       // document.getElementById('button').style.display = 'block';
+      //   });
+      // });
     </script>
 
   </head>

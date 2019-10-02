@@ -13,21 +13,21 @@ Case 1 of 3</div>
 
         <p>Click one of the following statements/questions below to continue the conversation with M:</p>
         <ol>
-            <li class="box" onclick="document.getElementById('question1').style.display = 'block';"><p>You are correct, let me tell you about the testing options available to you.</p>
-            <div class="guidance" id="question1"><p><em>Guidance:</em> While you are responding to M’s desire for information, this response leads right into information-giving without exploring M’s values, needs, and desires for testing. This limits your ability to tailor the information to attend to M’s needs because you do not understand what she hopes to gain from prenatal testing.</p></div></li>
+            <li class="answer" onclick="showGuidance(this)"><p>You are correct, let me tell you about the testing options available to you.</p>
+            <div class="guidance"><p><em>Guidance:</em> While you are responding to M’s desire for information, this response leads right into information-giving without exploring M’s values, needs, and desires for testing. This limits your ability to tailor the information to attend to M’s needs because you do not understand what she hopes to gain from prenatal testing.</p></div></li>
 
-            <li class="box" onclick="document.getElementById('question2').style.display = 'block';"><p>Yes, there are various genetic tests to choose from. Can you tell me a little more about your concerns, and what test results would mean for you and your pregnancy?</p>
-            <div class="guidance" id="question2"><p><em>Guidance:</em> Excellent. You are validating M’s question and providing a brief answer about the availability of many tests.  However, before providing information on testing options, you are attempting to find out what information M is hoping to gain from testing so you can help facilitate her decision-making.</p></div> </li>
+            <li class="answer" onclick="showGuidance(this)"><p>Yes, there are various genetic tests to choose from. Can you tell me a little more about your concerns, and what test results would mean for you and your pregnancy?</p>
+            <div class="guidance"><p><em>Guidance:</em> Excellent. You are validating M’s question and providing a brief answer about the availability of many tests.  However, before providing information on testing options, you are attempting to find out what information M is hoping to gain from testing so you can help facilitate her decision-making.</p></div></li>
 
-            <li class="box" onclick="document.getElementById('question3').style.display = 'block';"><p>Yes, the ideal test for you would be cell-free DNA screening because it is very accurate but doesn’t have a risk for miscarriage like invasive tests have.</p>
-            <div class="guidance" id="question3"><p><em>Guidance:</em> You may have predicted accurately that M wants cell-free DNA screening, however, by recommending a test without exploring M’s needs and values, you may be recommending an inappropriate test based on assumptions. If M desires the most accurate test available because she has anxiety surrounding uncertainty, she may opt to proceed directly with diagnostic testing, such as an amniocentesis. Alternatively, if she learns more about the risks and limitations of testing, she may decide to decline all testing.</p></div></li>
+            <li class="answer" onclick="showGuidance(this)"><p>Yes, the ideal test for you would be cell-free DNA screening because it is very accurate but doesn’t have a risk for miscarriage like invasive tests have.</p>
+            <div class="guidance"><p><em>Guidance:</em> You may have predicted accurately that M wants cell-free DNA screening, however, by recommending a test without exploring M’s needs and values, you may be recommending an inappropriate test based on assumptions. If M desires the most accurate test available because she has anxiety surrounding uncertainty, she may opt to proceed directly with diagnostic testing, such as an amniocentesis. Alternatively, if she learns more about the risks and limitations of testing, she may decide to decline all testing.</p></div></li>
         </ol>
-        <button type="button" class="btn btn-primary" style="margin: 30px auto 10px;" onclick="revealAll();">
+        <button id="reveal_btn" type="button" class="btn btn-primary" style="margin: 30px 0 10px;" onclick="revealAll()">
             Reveal all guidance
         </button>
 
-        <div id="button" class="text-center proceed" style="margin: 30px auto 10px; display: none;">
-            <button pi-message-done type="button" class="btn btn-primary"> Continue </button>
+        <div id="continue_btn" class="text-center proceed" style="margin: 30px auto 10px; display: none;">
+            <button pi-message-done type="button" class="btn btn-primary"> Continue to next case </button>
         </div>
     </div>
 

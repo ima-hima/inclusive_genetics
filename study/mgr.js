@@ -2,8 +2,8 @@ define(['managerAPI'], function(Manager) {
     var API = new Manager();
 
     API.setName('mgr');
-    API.addSettings('skip',true);
-    API.addSettings('skin','demo');
+    API.addSettings('skip', true);
+    API.addSettings('skin', 'simple');
 
     var mediaURL = './study/media/';  // where the images are stored on the server
     var timeURL  = '//cdn.jsdelivr.net/gh/minnojs/minno-time@0.3/dist/js';
@@ -68,22 +68,37 @@ define(['managerAPI'], function(Manager) {
             buttonText: 'Continue',
         }],
 
-        realstart: [{
-            type:       'quest',
-            // inherit:    'instructions',
+        question: [{
+          type:       'quest',
+          piTemplate: true,
+        }],
+
+        iat: [{
+          baseUrl:   timeURL,
+          type:      'pip',
+          version:   0.3,
+        }],
+
+        results: [{
+           type:        'message',
+           piTemplate:  true,
+           buttonHide:  true,
+           last:        true,
+        }],
+
+        participation: [{
+            inherit:    'question',
             name:       'participation',
             scriptUrl:  'participation.js?' + Math.random(),
             title:      'Project Inclusive Genetics',
-            piTemplate:  true,
             header:     'Welcome',
         }],
 
-        disclaimer: [{
+        ceu_disclaimer: [{
             inherit:     'instructions',
-            name:        'disclaimer',
-            templateUrl: 'disclaimer.jst?' + Math.random(),
+            name:        'ceu_disclaimer',
+            templateUrl: 'ceu_disclaimer.jst?' + Math.random(),
             title:       'Continuing Education disclaimer',
-            piTemplate:   true,
             header:      'Continuing Education disclaimer',
         }],
 
@@ -96,11 +111,9 @@ define(['managerAPI'], function(Manager) {
         }],
 
         id_iat: [{
-            baseUrl:   timeURL,
+            inherit:   'iat',
             name:      'id_iat',
             scriptUrl: 'id_iat.js?' + Math.random(),
-            type:      'pip',
-            version:   0.3,
         }],
 
         pd_iat_instructions: [{
@@ -113,11 +126,9 @@ define(['managerAPI'], function(Manager) {
         }],
 
         pd_iat: [{
-            baseUrl:   timeURL,
+            inherit:   'iat',
             name:      'pd_iat',
             scriptUrl: 'pd_iat.js?' + Math.random(),
-            type:      'pip',
-            version:   0.3,
         }],
 
         counseling_introduction: [{
@@ -125,7 +136,6 @@ define(['managerAPI'], function(Manager) {
             name:        'counseling_introduction',
             templateUrl: 'counseling_introduction.jst?' + Math.random(),
             title:       'Counseling Introduction',
-            piTemplate:   true,
             header:      'Counseling Introduction',
         }],
 
@@ -134,7 +144,6 @@ define(['managerAPI'], function(Manager) {
             name:        'counseling_what_is_it',
             templateUrl: 'counseling_what_is_it.jst?' + Math.random(),
             title:       'What is Pateient-Centered Counseling?',
-            piTemplate:   true,
             header:      'What is Patient-Centered Counseling?',
         }],
 
@@ -143,7 +152,6 @@ define(['managerAPI'], function(Manager) {
             name:        'counseling_challenges',
             templateUrl: 'counseling_challenges.jst?' + Math.random(),
             title:       'Patient-Centered Counseling Challenges',
-            piTemplate:   true,
             header:      'Patient-Centered Counseling Challenges',
         }],
 
@@ -152,17 +160,14 @@ define(['managerAPI'], function(Manager) {
             name:        'counseling_refs',
             templateUrl: 'counseling_refs.jst?' + Math.random(),
             title:       'Patient-Centered Counseling Challenges',
-            piTemplate:   true,
             header:      'Patient-Centered Counseling Challenges',
         }],
 
         demographics: [{
-            type:       'quest',
-            // inherit:    'clinical_scenario_1',
+            inherit:    'question',
             name:       'demographics',
             scriptUrl:  'demographics.js?' + Math.random(),
             title:      'Demographic Questions',
-            piTemplate:  true,
             header:     'Demographic Questions',
         }],
 
@@ -171,17 +176,14 @@ define(['managerAPI'], function(Manager) {
             name:        'clinical_scenario_1',
             templateUrl: 'clinical_scenario_1.jst?' + Math.random(),
             title:       'Scenario One',
-            piTemplate:   true,
             header:      'Scenario One',
         }],
 
         clinical_scenario_1_questions: [{
-            type:       'quest',
-            // inherit:    'clinical_scenario_1',
+            inherit:    'question',
             name:       'clinical_scenario_1_questions',
             scriptUrl:  'clinical_scenario_1_questions.js?' + Math.random(),
             title:      'Scenario One Questions',
-            piTemplate:  true,
             header:     'Scenario One Questions',
         }],
 
@@ -190,13 +192,11 @@ define(['managerAPI'], function(Manager) {
             name:        'clinical_scenario_2',
             templateUrl: 'clinical_scenario_2.jst?' + Math.random(),
             title:       'Scenario Two',
-            piTemplate:   true,
             header:      'Scenario Two',
         }],
 
         clinical_scenario_2_questions: [{
-            type:       'quest',
-            // inherit:    'instructions',
+            inherit:    'question',
             name:       'clinical_scenario_2_questions',
             scriptUrl:  'clinical_scenario_2_questions.js?' + Math.random(),
             title:      'Scenario Two Questions',
@@ -209,13 +209,11 @@ define(['managerAPI'], function(Manager) {
             name:        'clinical_scenario_3',
             templateUrl: 'clinical_scenario_3.jst?' + Math.random(),
             title:       'Scenario Three',
-            piTemplate:   true,
             header:      'Scenario Three',
         }],
 
         clinical_scenario_3_questions: [{
-            type:       'quest',
-            // inherit:    'instructions',
+            inherit:    'question',
             name:       'clinical_scenario_3_questions',
             scriptUrl:  'clinical_scenario_3_questions.js?' + Math.random(),
             title:      'Scenario Three Questions',
@@ -228,13 +226,11 @@ define(['managerAPI'], function(Manager) {
             name:        'clinical_scenario_4',
             templateUrl: 'clinical_scenario_4.jst?' + Math.random(),
             title:       'Scenario Four',
-            piTemplate:   true,
             header:      'Scenario Four',
         }],
 
         clinical_scenario_4_questions: [{
-            type:       'quest',
-            // inherit:    'instructions',
+            inherit:    'question',
             name:       'clinical_scenario_4_questions',
             scriptUrl:  'clinical_scenario_4_questions.js?' + Math.random(),
             title:      'Scenario Four Questions',
@@ -243,12 +239,10 @@ define(['managerAPI'], function(Manager) {
         }],
 
         console_check: [{
-            type:       'quest',
-            // inherit:    'instructions',
+            inherit:    'question',
             name:       'console_check',
             scriptUrl:  'console_check.js?' + Math.random(),
             title:      'Scenario Four Questions',
-            piTemplate:  true,
             header:     'Scenario Four Questions',
         }],
 
@@ -257,7 +251,6 @@ define(['managerAPI'], function(Manager) {
             name:        'case_1_1',
             templateUrl: 'case_1_1.jst?' + Math.random(),
             title:       'First Case',
-            piTemplate:   true,
             header:      'First Case',
         }],
 
@@ -266,7 +259,6 @@ define(['managerAPI'], function(Manager) {
             name:        'case_1_2',
             templateUrl: 'case_1_2.jst?' + Math.random(),
             title:       'First Case',
-            piTemplate:   true,
             header:      'First Case',
         }],
 
@@ -275,7 +267,6 @@ define(['managerAPI'], function(Manager) {
             name:        'case_1_3',
             templateUrl: 'case_1_3.jst?' + Math.random(),
             title:       'First Case',
-            piTemplate:   true,
             header:      'First Case',
         }],
 
@@ -284,7 +275,6 @@ define(['managerAPI'], function(Manager) {
             name:        'case_1_summary',
             templateUrl: 'case_1_summary.jst?' + Math.random(),
             title:       'First Case',
-            piTemplate:   true,
             header:      'First Case',
         }],
 
@@ -293,7 +283,6 @@ define(['managerAPI'], function(Manager) {
             name:        'case_2_1',
             templateUrl: 'case_2_1.jst?' + Math.random(),
             title:       'Second Case',
-            piTemplate:   true,
             header:      'Second Case',
         }],
 
@@ -302,7 +291,6 @@ define(['managerAPI'], function(Manager) {
             name:        'case_2_2',
             templateUrl: 'case_2_2.jst?' + Math.random(),
             title:       'First Case',
-            piTemplate:   true,
             header:      'First Case',
         }],
 
@@ -311,7 +299,6 @@ define(['managerAPI'], function(Manager) {
             name:        'case_2_3',
             templateUrl: 'case_2_3.jst?' + Math.random(),
             title:       'First Case',
-            piTemplate:   true,
             header:      'First Case',
         }],
 
@@ -320,7 +307,6 @@ define(['managerAPI'], function(Manager) {
             name:        'case_2_summary',
             templateUrl: 'case_2_summary.jst?' + Math.random(),
             title:       'First Case',
-            piTemplate:   true,
             header:      'First Case',
         }],
 
@@ -329,7 +315,6 @@ define(['managerAPI'], function(Manager) {
             name:        'case_3_1',
             templateUrl: 'case_3_1.jst?' + Math.random(),
             title:       'Second Case',
-            piTemplate:   true,
             header:      'Second Case',
         }],
 
@@ -338,7 +323,6 @@ define(['managerAPI'], function(Manager) {
             name:        'case_3_2',
             templateUrl: 'case_3_2.jst?' + Math.random(),
             title:       'First Case',
-            piTemplate:   true,
             header:      'First Case',
         }],
 
@@ -347,7 +331,6 @@ define(['managerAPI'], function(Manager) {
             name:        'case_3_3',
             templateUrl: 'case_3_3.jst?' + Math.random(),
             title:       'First Case',
-            piTemplate:   true,
             header:      'First Case',
         }],
 
@@ -356,7 +339,6 @@ define(['managerAPI'], function(Manager) {
             name:        'case_3_summary',
             templateUrl: 'case_3_summary.jst?' + Math.random(),
             title:       'First Case',
-            piTemplate:   true,
             header:      'First Case',
         }],
 
@@ -365,7 +347,6 @@ define(['managerAPI'], function(Manager) {
             name:        'case_3',
             templateUrl: 'case_3.jst?' + Math.random(),
             title:       'Third Case',
-            piTemplate:   true,
             header:      'Third Case',
         }],
 
@@ -374,46 +355,53 @@ define(['managerAPI'], function(Manager) {
             name:        'case_4',
             templateUrl: 'case_4.jst?' + Math.random(),
             title:       'Fourth Case',
-            piTemplate:   true,
             header:      'Fourth Case',
         }],
 
-        continuing_ed_questions: [{
-            type: 'quest',
-            name: 'continuing_ed_questions',
-            scriptUrl: 'continuing_ed_questions.js?' + Math.random(),
+        continuing_ed_test: [{
+            inherit:   'question',
+            name:      'continuing_ed_test',
+            scriptUrl: 'continuing_ed_test.js?' + Math.random(),
+            title:     'Continuing Education Test',
+        }],
+
+        ceu_module_evaluation: [{
+            inherit:    'question',
+            name:       'ceu_module_evaluation',
+            scriptUrl:  'ceu_module_evaluation.js?' + Math.random(),
+            title:      'Teaching Module Evaluation',
+            header:     'Welcome',
+        }],
+
+        ceu_identification: [{
+            inherit:    'question',
+            name:       'ceu_identification',
+            scriptUrl:  'ceu_identification.js?' + Math.random(),
+            title:      'Your identification',
+            header:     'Welcome',
         }],
 
         iat_results: [{
-            type: 'message',
-            name: 'iat_results',
+            inherit:     'results',
+            name:        'iat_results',
             templateUrl: 'iat_results.jst?' + Math.random(),
-            title: 'Final results',
-            piTemplate: true,
-            buttonHide: true,
-            last:true,
-            header: 'You have completed the study'
+            title:       'Final results',
+            header:      'You have completed the study'
         }],
 
         course_goals: [{
-            type:        'message',
+            inherit:     'results',
             name:        'course_goals',
             templateUrl: 'course_goals.jst?' + Math.random(),
             title:       'Thank You',
-            piTemplate:  true,
-            buttonHide:  true,
-            last:        true,
             header:      'You have completed the study'
         }],
 
         declined: [{
-            type:        'message',
+            inherit:     'results',
             name:        'declined',
             templateUrl: 'declined.jst?' + Math.random(),
             title:       'Thank You',
-            piTemplate:  true,
-            buttonHide:  true,
-            last:        true,
             header:      'Declined',
         }],
     });
@@ -421,20 +409,20 @@ define(['managerAPI'], function(Manager) {
 
     API.addSequence([
         // Each set of curly braces is a page.
-        {inherit: 'realstart'},
+        {inherit: 'participation'},
         { // If they decline to participate scourse_goals them to thanks anyway.
           mixer: 'branch',
           conditions: [
-            {compare: 'global.participation.questions.participate.response', to: "I agree to participate"} // figuring out that the question was in the quesiton object and that there wasn't a participation object. Also, you can't have a . in the comparison or it won't parse correctly. I didn't try with a variable, maybe that'd fix it.
+            {compare: 1, to: 'global.participation.questions.participate.response'} // figuring out that the question was in the quesiton object and that there wasn't a participation object. Also, you can't have a . in the comparison or it won't parse correctly. I didn't try with a variable, maybe that'd fix it.
           ],
           data: [
             {  // now, continuing ed credit? If so display disclaimer
               mixer: 'branch',
               conditions: [
-                {compare: 'global.participation.questions.cmeCeu.response', to: "Yes"}
+                {compare: 1, to: 'global.participation.questions.cmeCeu.response'} // They're looking for credit
               ],
               data: [
-                {inherit: 'disclaimer'}
+                {inherit: 'ceu_disclaimer'}
               ],
             },
 
@@ -445,24 +433,24 @@ define(['managerAPI'], function(Manager) {
             {inherit: 'clinical_scenario_2'},
             {inherit: 'clinical_scenario_2_questions'},
 
-            // Demographics
+            // // Demographics
             // {inherit: 'demographics'},
 
             // First IAT, for physical disabilities
-            // {inherit: 'pd_iat_instructions'},
-            // {inherit: 'pd_iat'},
+            {inherit: 'pd_iat_instructions'},
+            {inherit: 'pd_iat'},
 
             // Second IAT, for intellectual disabilities
-            // {inherit: 'id_iat_instructions'},
-            // {inherit: 'id_iat'},
+            {inherit: 'id_iat_instructions'},
+            {inherit: 'id_iat'},
 
-            // Explaining patient-centered counseling
+            // // Explaining patient-centered counseling
             {inherit: 'counseling_introduction'},
             {inherit: 'counseling_what_is_it'},
             {inherit: 'counseling_challenges'},
             {inherit: 'counseling_refs'},
 
-            // Patient-centered counseling scenarios for teaching
+            // // Patient-centered counseling scenarios for teaching
             {inherit: 'case_1_1'},
             {inherit: 'case_1_2'},
             {inherit: 'case_1_3'},
@@ -478,21 +466,23 @@ define(['managerAPI'], function(Manager) {
             {inherit: 'case_3_3'},
             {inherit: 'case_3_summary'},
 
-            // Patient-centered counseling scenarios for post–teaching module follow-up testing
+            // // Patient-centered counseling scenarios for post–teaching module follow-up testing
             {inherit: 'clinical_scenario_3'},
             {inherit: 'clinical_scenario_3_questions'},
 
             {inherit: 'clinical_scenario_4'},
             {inherit: 'clinical_scenario_4_questions'},
-            // {inherit: 'console_check'},
+            // // {inherit: 'console_check'},
             {inherit: 'course_goals'},
             {  // Continuing ed credit? If so display quiz
               mixer: 'branch',
               conditions: [
-                {compare: 'global.participation.questions.cmeCeu.response', to: "Yes"}
+                {compare: 1, to: 'global.participation.questions.cmeCeu.response'}
               ],
               data: [
-                {inherit: 'continuing_ed_questions'}
+                // {inherit: 'continuing_ed_test'},
+                {inherit: 'ceu_module_evaluation'},
+                {inherit: 'ceu_identification'},
               ],
             },
             {

@@ -37,9 +37,10 @@ define(['questAPI', 'underscore'], function(Quest, _){
 
     API.addQuestionsSet('singleChoice', {
         inherit:  'basicQ',
+        numericValues: true,
         type:     'selectOne',
         help:     '<%= pagesMeta.number < 10 %>',
-        helpText: 'Tip: For quick response, click to select your answer, and then click again to submit.'
+        helpText: 'Tip: For quick response, double click on an answer to select it and go to the next page.'
     });
 
     API.addQuestionsSet('text', {

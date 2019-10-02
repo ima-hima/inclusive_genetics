@@ -21,7 +21,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
         numbered:    false,
         progressBar: isTouch ? 'Page <%= pagesMeta.number %> out of 21'
                              : 'Page <%= pagesMeta.number %> out of 21',
-        prev:        true
+        prev:        true,
     });
 
     /**
@@ -36,31 +36,38 @@ define(['questAPI', 'underscore'], function(Quest, _){
                 : 'Please select an answer, or click \'Decline to Answer\''
         },
         autoSubmit:    true,
-        numericValues: true
+        numericValues: true,
     });
 
     API.addQuestionsSet('singleChoice', {
         inherit:  'basicQ',
         type:     'selectOne',
         help:     '<%= pagesMeta.number < 10 %>',
-        helpText: 'Tip: For quick response, click to select your answer, and then click again to submit.'
+        helpText: 'Tip: For quick response, click to select your answer, and then click again to submit.',
+    });
+
+    API.addQuestionsSet('explicitBiasChoice', {
+        inherit:    'singleChoice',
+        autoSubmit: false,
+        decline:    false,
+        helpText:   '',
     });
 
     API.addQuestionsSet('text', {
         inherit: 'basicQ',
         type:    'text',
-        noSubmit: false
+        noSubmit: false,
     });
 
     API.addQuestionsSet('singleChoicedrop', {
         inherit:    'basicQ',
         autoSubmit: false,
-        type:       'dropdown'
+        type:       'dropdown',
     });
 
     API.addQuestionsSet('multiChoice', {
         inherit: 'basicQ',
-        type:    'selectMulti'
+        type:    'selectMulti',
     });
 
     API.addQuestionsSet('boolean', {
@@ -69,7 +76,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
         buttons:  true,
         answers : [
             {text: 'Yes', value:1},
-            {text: 'No', value:0}
+            {text: 'No', value:0},
         ]
     });
 
@@ -80,7 +87,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
         inherit: 'text',
         name:    'age',
         stem:    'What is your age?',
-        answers: _.range(100, 15, -1) // use underscore to create an array of years from ten years ago back to 1910
+        answers: _.range(100, 15, -1), // use underscore to create an array of years from ten years ago back to 1910
     });
 
     API.addQuestionsSet('genderIdentity', {
@@ -122,7 +129,8 @@ define(['questAPI', 'underscore'], function(Quest, _){
             {text: 'Medical student',         value: 8},
             {text: 'Fellow',                  value: 9},
             {text: 'GC student',              value: 10},
-            {text: 'Other',                   value:11},
+            {text: 'Educator',                value: 11},
+            {text: 'Other',                   value:12},
         ]
     });
 
@@ -282,49 +290,13 @@ define(['questAPI', 'underscore'], function(Quest, _){
         ]
     });
 
-    API.addQuestionsSet('PD_damaged', {
-        inherit: 'singleChoice',
-        name: 'PD_damaged',
-        stem: 'Most people think a child with a <strong>physical</strong> disability is “damaged.”',
-        answers: [
-            {text: 'Strongly disagree', value: 1},
-            {text: 'Disagree',          value: 2},
-            {text: 'Neutral',           value: 3},
-            {text: 'Agree',             value: 4},
-            {text: 'Strongly agree',    value: 5},
-        ]
-    });
 
-    API.addQuestionsSet('ID_damaged', {
-        inherit: 'singleChoice',
-        name: 'ID_damaged',
-        stem: 'Most people think a child with an <strong>intellectual</strong> disability is “damaged.”',
-        answers: [
-            {text: 'Strongly disagree', value: 1},
-            {text: 'Disagree',          value: 2},
-            {text: 'Neutral',           value: 3},
-            {text: 'Agree',             value: 4},
-            {text: 'Strongly agree',    value: 5},
-        ]
-    });
+//// Start Explicit Bias questions here. ////
 
     API.addQuestionsSet('PD_uncomfortable', {
-        inherit: 'singleChoice',
+        inherit: 'explicitBiasChoice',
         name: 'PD_uncomfortable',
-        stem: 'Most people are uncomfortable around a child with a <strong>physical</strong> disability.',
-        answers: [
-            {text: 'Strongly disagree', value: 1},
-            {text: 'Disagree',          value: 2},
-            {text: 'Neutral',           value: 3},
-            {text: 'Agree',             value: 4},
-            {text: 'Strongly agree',    value: 5},
-        ]
-    });
-
-    API.addQuestionsSet('ID_uncomfortable', {
-        inherit: 'singleChoice',
-        name: 'ID_uncomfortable',
-        stem: 'Most people are uncomfortable around a child with an <strong>intellectual</strong> disability.',
+        stem: 'Most people are uncomfortable around a child with a <em>physical disability</em>.',
         answers: [
             {text: 'Strongly disagree', value: 1},
             {text: 'Disagree',          value: 2},
@@ -335,48 +307,9 @@ define(['questAPI', 'underscore'], function(Quest, _){
     });
 
     API.addQuestionsSet('PD_ignored', {
-        inherit: 'singleChoice',
+        inherit: 'explicitBiasChoice',
         name: 'PD_ignored',
-        stem: 'The good characteristics of a child with a <strong>physical</strong> disability tend to be ignored.',
-        answers: [
-            {text: 'Strongly disagree', value: 1},
-            {text: 'Disagree',          value: 2},
-            {text: 'Neutral',           value: 3},
-            {text: 'Agree',             value: 4},
-            {text: 'Strongly agree',    value: 5},
-        ]
-    });
-
-    API.addQuestionsSet('ID_ignored', {
-        inherit: 'singleChoice',
-        name: 'ID_ignored',
-        stem: 'The good characteristics of a child with an <strong>intellectual</strong> disability tend to be ignored.',
-        answers: [
-            {text: 'Strongly disagree', value: 1},
-            {text: 'Disagree',          value: 2},
-            {text: 'Neutral',           value: 3},
-            {text: 'Agree',             value: 4},
-            {text: 'Strongly agree',    value: 5},
-        ]
-    });
-
-    API.addQuestionsSet('PD_afraid', {
-        inherit: 'singleChoice',
-        name: 'PD_afraid',
-        stem: 'People seem afraid of a child with a <strong>physical</strong> disability once they learn of the child’s disability.',
-        answers: [
-            {text: 'Strongly disagree', value: 1},
-            {text: 'Disagree',          value: 2},
-            {text: 'Neutral',           value: 3},
-            {text: 'Agree',             value: 4},
-            {text: 'Strongly agree',    value: 5},
-        ]
-    });
-
-    API.addQuestionsSet('ID_afraid', {
-        inherit: 'singleChoice',
-        name: 'ID_afraid',
-        stem: 'People seem afraid of a child with an <strong>intellectual</strong> disability once they learn of the child’s disability.',
+        stem: 'The good characteristics of a child with a <em>physical disability</em> tend to be ignored.',
         answers: [
             {text: 'Strongly disagree', value: 1},
             {text: 'Disagree',          value: 2},
@@ -387,9 +320,61 @@ define(['questAPI', 'underscore'], function(Quest, _){
     });
 
     API.addQuestionsSet('PD_impairment', {
-        inherit: 'singleChoice',
+        inherit: 'explicitBiasChoice',
         name: 'PD_impairment',
-        stem: 'Most children with a <strong>physical</strong> disability are extremely impaired and cannot live independently as adults.',
+        stem: 'Most children with a <em>physical disability</em> are extremely impaired and cannot live independently as adults.',
+        answers: [
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
+        ]
+    });
+
+    API.addQuestionsSet('PD_outcasts', {
+        inherit: 'explicitBiasChoice',
+        name: 'ID_damaged',
+        stem: 'People with <em>physical disabilities</em> are often treated as outcasts.',
+        answers: [
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
+        ]
+     });
+
+     API.addQuestionsSet('PD_undesirable', {
+        inherit: 'explicitBiasChoice',
+        name: 'PD_afraid',
+        stem: 'Most people feel that having a child with a <em>physical disability</em> is undesirable.',
+        answers: [
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
+        ]
+    });
+
+    API.addQuestionsSet('ID_uncomfortable', {
+        inherit: 'explicitBiasChoice',
+        name: 'ID_uncomfortable',
+        stem: 'Most people are uncomfortable around a child with an <em>intellectual disability</em>.',
+        answers: [
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
+        ]
+    });
+
+    API.addQuestionsSet('ID_ignored', {
+        inherit: 'explicitBiasChoice',
+        name: 'ID_ignored',
+        stem: 'The good characteristics of a child with an <em>intellectual disability</em> tend to be ignored.',
         answers: [
             {text: 'Strongly disagree', value: 1},
             {text: 'Disagree',          value: 2},
@@ -400,9 +385,35 @@ define(['questAPI', 'underscore'], function(Quest, _){
     });
 
     API.addQuestionsSet('ID_impairment', {
-        inherit: 'singleChoice',
+        inherit: 'explicitBiasChoice',
         name: 'ID_impairment',
-        stem: 'Most children with an <strong>intellectual</strong> disability are extremely impaired and cannot live independently as adults.',
+        stem: 'Most children with an <em>intellectual disability</em> are extremely impaired and cannot live independently as adults.',
+        answers: [
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
+        ]
+    });
+
+    API.addQuestionsSet('ID_outcasts', {
+        inherit: 'explicitBiasChoice',
+        name: 'ID_afraid',
+        stem: 'People with <em>intellectual disabilities</em> are often treated as outcasts.',
+        answers: [
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
+        ]
+    });
+
+    API.addQuestionsSet('ID_undesirable', {
+        inherit: 'explicitBiasChoice',
+        name: 'ID_afraid',
+        stem: 'Most people feel that having a child with an <em>intellectual disability</em> is undesirable.',
         answers: [
             {text: 'Strongly disagree', value: 1},
             {text: 'Disagree',          value: 2},
@@ -413,93 +424,73 @@ define(['questAPI', 'underscore'], function(Quest, _){
     });
 
     API.addSequence([
+        // {
+        //     inherit: 'basicPage',
+        //     questions: [
+        //         {inherit: 'age'}
+        //     ]
+        // },
+        // {
+        //     inherit: 'basicPage',
+        //     questions: [
+        //         {inherit: 'genderIdentity'}
+        //     ]
+        // },
+        // {
+        //     inherit: 'basicPage',
+        //     questions: [
+        //         {inherit: 'work_setting'}
+        //     ]
+        // },
+        // {
+        //     inherit: 'basicPage',
+        //     questions: [
+        //         {inherit: 'state'}
+        //     ]
+        // },
+        // {
+        //     inherit: 'basicPage',
+        //     questions: [{inherit: 'religionid'}]
+        // },
+        // {
+        //     inherit: 'basicPage',
+        //     questions: [{inherit: 'politicalid'}]
+        // },
+        // {
+        //     inherit: 'basicPage',
+        //     questions: [{inherit: 'termination'}]
+        // },
+        // {
+        //     inherit: 'basicPage',
+        //     questions: [{inherit: 'clinical_experience'}]
+        // },
+        // {
+        //     inherit: 'basicPage',
+        //     questions: [{inherit: 'intellectual_disability_experience'}]
+        // },
+        // {
+        //     inherit: 'basicPage',
+        //     questions: [{inherit: 'physical_disability_experience'}]
+        // },
         {
-            inherit: 'basicPage',
-            questions: [
-                {inherit: 'age'}
-            ]
+            inherit:   'basicPage',
+            questions: [{inherit: 'PD_uncomfortable'},
+                        {inherit: 'PD_ignored'},
+                        {inherit: 'PD_impairment'},
+                        {inherit: 'PD_outcasts'},
+                        {inherit: 'PD_undesirable'},
+                       ],
+            decline:   false,
         },
         {
-            inherit: 'basicPage',
-            questions: [
-                {inherit: 'genderIdentity'}
-            ]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [
-                {inherit: 'work_setting'}
-            ]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [
-                {inherit: 'state'}
-            ]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'religionid'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'politicalid'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'termination'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'clinical_experience'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'intellectual_disability_experience'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'physical_disability_experience'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'PD_damaged'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'ID_damaged'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'PD_uncomfortable'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'ID_uncomfortable'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'PD_ignored'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'ID_ignored'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'PD_afraid'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'ID_afraid'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'PD_impairment'}]
-        },
-        {
-            inherit: 'basicPage',
-            questions: [{inherit: 'ID_impairment'}]
+            inherit:   'basicPage',
+            questions: [{inherit: 'ID_uncomfortable'},
+                        {inherit: 'ID_ignored'},
+                        {inherit: 'ID_impairment'},
+                        {inherit: 'ID_outcasts'},
+                        {inherit: 'ID_undesirable'},
+                       ],
+            decline:   false,
         },
     ]);
 

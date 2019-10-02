@@ -11,21 +11,21 @@ Case 1 of 3</div>
         <p>Click one of the following statements/questions below to continue the conversation with M:</p>
 
         <ol>
-          <li class="box" onclick="document.getElementById('question4').style.display = 'block';"><p>It sounds like you are somewhat familiar with Down syndrome. Is your friend from church the only exposure to Down syndrome you have had or have you met an adult with Down syndrome?</p>
-          <div class="guidance" id="question4"><p><em>Guidance:</em> Excellent. You are asking open-ended questions to determine M’s knowledge of Down syndrome so that you can learn about the fears she may have about raising a child with Down syndrome and can correct potential misunderstandings she may have.</p></div></li>
+          <li class="answer" onclick="showGuidance(this)"><p>It sounds like you are somewhat familiar with Down syndrome. Is your friend from church the only exposure to Down syndrome you have had or have you met an adult with Down syndrome?</p>
+          <div class="guidance"><p><em>Guidance:</em> Excellent. You are asking open-ended questions to determine M’s knowledge of Down syndrome so that you can learn about the fears she may have about raising a child with Down syndrome and can correct potential misunderstandings she may have.</p></div></li>
 
-          <li class="box" onclick="document.getElementById('question5').style.display = 'block';"><p>I hear that you are concerned about the wellbeing of your child, but let’s first talk about what your chances of Down syndrome are based on your age.</p>
-          <div class="guidance" id="question5"><p><em>Guidance:</em> It is good to validate the concerns of your patient, but you have redirected the conversation from M’s concerns to information-giving. It is helpful to obtain more information from M or continue to inquire about M’s needs after providing her an age-related risk assessment.</p></div></li>
+          <li class="answer" onclick="showGuidance(this)"><p>I hear that you are concerned about the wellbeing of your child, but let’s first talk about what your chances of Down syndrome are based on your age.</p>
+          <div class="guidance"><p><em>Guidance:</em> It is good to validate the concerns of your patient, but you have redirected the conversation from M’s concerns to information-giving. It is helpful to obtain more information from M or continue to inquire about M’s needs after providing her an age-related risk assessment.</p></div></li>
 
-          <li class="box" onclick="document.getElementById('question6').style.display = 'block';"><p>It sounds like your friend had a difficult time with the initial diagnosis. Did your friend’s experience of finding out her baby has Down syndrome after birth make you realize that you would want to know before delivery if your baby has a genetic condition?</p>
-          <div class="guidance" id="question6"><p><em>Guidance:</em> Excellent. You have validated M’s concerns and asked her a follow-up question to learn more about whether she would be interested in prenatal testing.</p></div></li>
+          <li class="answer" onclick="showGuidance(this)"><p>It sounds like your friend had a difficult time with the initial diagnosis. Did your friend’s experience of finding out her baby has Down syndrome after birth make you realize that you would want to know before delivery if your baby has a genetic condition?</p>
+          <div class="guidance"><p><em>Guidance:</em> Excellent. You have validated M’s concerns and asked her a follow-up question to learn more about whether she would be interested in prenatal testing.</p></div></li>
         </ol>
-        <button type="button" class="btn btn-primary" style="margin: 30px auto 10px;" onclick="revealAll();">
+        <button id="reveal_btn" type="button" class="btn btn-primary" style="margin: 30px 0 10px;" onclick="revealAll()">
             Reveal all guidance
         </button>
 
-        <div id="button" class="text-center proceed" style="margin: 30px auto 10px; display: none;">
-            <button pi-message-done type="button" class="btn btn-primary"> Continue </button>
+        <div id="continue_btn" class="text-center proceed" style="margin: 30px auto 10px; display: none;">
+            <button pi-message-done type="button" class="btn btn-primary"> Continue to next case </button>
         </div>
     </div>
 
