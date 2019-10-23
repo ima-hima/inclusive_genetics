@@ -55,6 +55,27 @@ p {
   display: none;
 }
 
+.scenario-question-attempt {
+  font-size: 20px;
+  line-height: 1.4em;
+  text-align: center;
+}
+
+.scenario-question-text {
+  font-weight: 400;
+  font-size: 15px;
+  color: black;
+  line-height: 1.4em;
+  margin: 0 12.5% 1.4em 12.5%;
+  text-align: left;
+}
+
+.scenario-question-select {
+  font-size: 20px;
+  line-height: 1.4em;
+  margin-top: 3em;
+}
+
 .section-progress {
   text-align: center;
   font-size: 14px;

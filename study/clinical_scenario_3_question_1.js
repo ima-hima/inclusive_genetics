@@ -3,7 +3,7 @@ define(['questAPI'], function(Quest){
 
     API.addSequence([
         { // page begins
-            header: '<p style="font-weight: 400; font-size: 15px; color: black; line-height: 1.4em; width: 75%;">A couple, Mr. and Mrs. H, was referred to you for a prenatal counseling session at 12 weeks gestation because they were both found to be carriers of ataxia telangiectasia (AT) through expanded carrier screening ordered by Mrs. H’s obstetrician. AT is a condition characterized by childhood onset movement problems called ataxia. They can have difficulty walking and with balance, chorea, and neuropathy. The movement problems typically cause people to require wheelchair assistance by adolescence. They can also have a weakened immune system and an increased risk for cancer. The phenotype typically presents only with physical aspects to the condition. The lifespan varies greatly, but individuals typically survive into early adulthood. When both parents are carriers, each pregnancy has a 25% risk to be affected.</p> Select an answer from the choices below',
+            header: '<p class="scenario-question-attempt">Question 1 first attempt</p><p class="scenario-question-text">A couple, Mr. and Mrs. H, was referred to you for a prenatal counseling session at 12 weeks gestation because they were both found to be carriers of ataxia telangiectasia (AT) through expanded carrier screening ordered by Mrs. H’s obstetrician. AT is a condition characterized by childhood onset movement problems called ataxia. They can have difficulty walking and with balance, chorea, and neuropathy. The movement problems typically cause people to require wheelchair assistance by adolescence. They can also have a weakened immune system and an increased risk for cancer. The phenotype typically presents only with physical aspects to the condition. The lifespan varies greatly, but individuals typically survive into early adulthood. When both parents are carriers, each pregnancy has a 25% risk to be affected.</p><p class="scenario-question-select">Select an answer from the choices below</p>',
             questions: [
                 { // question 1 begins
                     name: 'question1',
@@ -18,8 +18,8 @@ define(['questAPI'], function(Quest){
                                'Strongly discourage prenatal testing',
                     ],
                     required: true,
-                    correct:  true,
-                    correctValue: 3,
+                    // correct:  true,
+                    // correctValue: 3,
                     numericValues: true,
                 },
                 // { // question 2 begins
