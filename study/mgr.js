@@ -2,7 +2,9 @@ define(['managerAPI'], function(Manager) {
     var API = new Manager();
 
     API.setName('mgr');
+
     API.addSettings('skip', true);
+
     API.addSettings('skin', 'simple');
 
     var mediaURL = './study/media/';  // where the images are stored on the server
@@ -217,7 +219,6 @@ define(['managerAPI'], function(Manager) {
             name:       'clinical_scenario_3_question_1',
             scriptUrl:  'clinical_scenario_3_question_1.js?' + Math.random(),
             title:      'Scenario Three Questions',
-            piTemplate:  true,
             header:     'Scenario Three Questions',
         }],
 
@@ -226,7 +227,6 @@ define(['managerAPI'], function(Manager) {
             name:       'clinical_scenario_3_question_2',
             scriptUrl:  'clinical_scenario_3_question_2.js?' + Math.random(),
             title:      'Scenario Three Questions',
-            piTemplate:  true,
             header:     'Scenario Three Questions',
         }],
 
@@ -235,7 +235,6 @@ define(['managerAPI'], function(Manager) {
             name:       'clinical_scenario_3_question_3',
             scriptUrl:  'clinical_scenario_3_question_3.js?' + Math.random(),
             title:      'Scenario Three Questions',
-            piTemplate:  true,
             header:     'Scenario Three Questions',
         }],
 
@@ -252,7 +251,6 @@ define(['managerAPI'], function(Manager) {
             name:       'clinical_scenario_4_questions',
             scriptUrl:  'clinical_scenario_4_questions.js?' + Math.random(),
             title:      'Scenario Four Questions',
-            piTemplate:  true,
             header:     'Scenario Four Questions',
         }],
 
@@ -399,10 +397,28 @@ define(['managerAPI'], function(Manager) {
             header:     'Welcome',
         }],
 
+        collect_iat_feedback: [{
+          type: 'post',
+          url:  'iat_feedback_csv.php',
+          data: { header: 'uuid, pd iat, id iat',
+                  uuid: '<%= global.participation.questions.uuid.response %>',
+                  // pd_iat: '<%= pd_iat.feedback %>',
+                  // id_iat: '<%= id_iat.feedback %>',
+                },
+        }],
+
         iat_results: [{
             inherit:     'results',
             name:        'iat_results',
             templateUrl: 'iat_results.jst?' + Math.random(),
+            title:       'Final results',
+            header:      'You have completed the study'
+        }],
+
+        iat_results_csv: [{
+            inherit:     'results',
+            name:        'iat_results_csv',
+            templateUrl: 'iat_results_csv.jst?' + Math.random(),
             title:       'Final results',
             header:      'You have completed the study'
         }],
@@ -428,6 +444,10 @@ define(['managerAPI'], function(Manager) {
     API.addSequence([
         // Each set of curly braces is a page.
         {inherit: 'participation'},
+        {
+          type: 'postCsv',
+          url:  'participants_csv.php',
+        },
         // { // If they decline to participate scourse_goals them to thanks anyway.
         //   mixer: 'branch',
         //   conditions: [
@@ -524,9 +544,10 @@ define(['managerAPI'], function(Manager) {
             //     {inherit: 'ceu_identification'},
             //   ],
             // },
+            { inherit: 'collect_iat_feedback' },
             {
-                type: 'postCsv',
-                url:  'csv.php',
+              type: 'postCsv',
+              url:  'answers_csv.php',
             },
             {inherit: 'iat_results'},
           // ],
