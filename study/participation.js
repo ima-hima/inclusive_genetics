@@ -3,17 +3,17 @@ define(['questAPI'], function(Quest){
     var uuid = Math.random();
 
     API.addQuestionsSet({
-      recontact: [{
-        name:    'recontact',
-        type:    'selectMulti',
+      claim_credit: [{
+        name: 'claim_credit',
+        type: 'selectOne',
         numericValues: true,
-        stem:    '<h5>Re-contact</h5>We would like to ask your permission to contact you again in the future. This contact would be after the study has ended. Please select your choices below:',
-        autoSubmit: true,
+        stem: '<h5>Continuing Ed credit</h5>I may claim CME or CEU credits for this course now or in the future:',
+        autoSubmit: false,
         answers: [
-                  'You may contact me again to ask for additional information related to this study.',
-                  'You may contact me again to let me know about a different research study.',
+                   'Yes',
+                   'No',
                  ],
-        required: false,
+        required: true,
       }],
       email: [{
         name: 'email',
@@ -37,6 +37,15 @@ define(['questAPI'], function(Quest){
         },
         required: true,
       }],
+      nsgc: [{ // NSGC id
+          name: 'NSGC_id',
+          type: 'text',
+          stem: 'If you are claiming CEU credit, please enter you NSGC user ID. If you do not have an NSGC ID number enter “n/a”.',
+          required: true,
+          errorMsg: {
+              required: 'You must provide this information in order for us to grant CEU credit. All of your results will remain confidential.'
+          }
+      }],
       participate: [{
         name: 'participate',
         type: 'selectOne',
@@ -54,22 +63,38 @@ define(['questAPI'], function(Quest){
           current.questions.uuid.response = Math.random();
         },
       }],
-      claim_credit: [{
-        name: 'claim_credit',
-        type: 'selectOne',
+      recontact: [{
+        name:    'recontact',
+        type:    'selectMulti',
         numericValues: true,
-        stem: '<h5>Continuing Ed credit</h5>I may claim CME or CEU credits for this course now or in the future:',
-        autoSubmit: false,
+        stem:    '<h5>Re-contact</h5>We would like to ask your permission to contact you again in the future. This contact would be after the study has ended. Please select your choices below:',
+        autoSubmit: true,
         answers: [
-                   'Yes',
-                   'No',
+                  'You may contact me again to ask for additional information related to this study.',
+                  'You may contact me again to let me know about a different research study.',
                  ],
-        required: true,
+        required: false,
       }],
       uuid: [{
         name: 'uuid',
         dflt: uuid,
-      }]
+      }],
+      which_ce_credit: [{
+        name:    'which_ce_credit',
+        type:    'dropdown',
+        answers: [
+                  {text: 'CME', value: 1},
+                  {text: 'CEU', value: 2},
+                 ],
+        decline:       false,
+        required:      true,
+        autoSubmit:    false,
+        numericValues: true,
+        stem: 'I may claim credit for:',
+        errorMsg: {
+            required: "If you may claim continuing education credit, you must specify which.",
+        },
+      }],
     });
 
     API.addSequence([
@@ -96,7 +121,8 @@ define(['questAPI'], function(Quest){
                     {compare: 1, to: 'current.questions.claim_credit.response'}
                   ],
                   data: [
-                    {inherit:'name'}
+                    {inherit: 'which_ce_credit'},
+                    {inherit: 'name'},
                   ],
                 },
                 // this question should be shown only if "other was selected"
@@ -111,7 +137,17 @@ define(['questAPI'], function(Quest){
                         ],
                     }],
                   data: [
-                    {inherit: 'email'}
+                    {inherit: 'email'},
+                  ],
+                },
+                {
+                  remix: true,
+                  mixer: 'branch',
+                  conditions: [
+                    {compare: 2, to: 'current.questions.which_ce_credit.response'},
+                  ],
+                  data: [
+                    {inherit: 'nsgc'},
                   ],
                 },
             ], // questions end

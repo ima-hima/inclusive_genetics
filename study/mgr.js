@@ -549,13 +549,13 @@ define(['managerAPI'], function(Manager) {
             header:     'Welcome',
         }],
 
-        collect_iat_feedback: [{
+        collect_iat_feedback: [{ // Get summarized iat feedback that was given to user, along with uuid.
           type: 'post',
           url:  'iat_feedback_csv.php',
           data: { header: 'uuid, pd iat, id iat',
                   uuid: '<%= global.participation.questions.uuid.response %>',
-                  // pd_iat: '<%= pd_iat.feedback %>',
-                  // id_iat: '<%= id_iat.feedback %>',
+                  pd_iat: '<%= global.pd_iat.feedback %>',
+                  id_iat: '<%= global.id_iat.feedback %>',
                 },
         }],
 
@@ -567,13 +567,13 @@ define(['managerAPI'], function(Manager) {
             header:      'You have completed the study'
         }],
 
-        iat_results_csv: [{
-            inherit:     'results',
-            name:        'iat_results_csv',
-            templateUrl: 'iat_results_csv.jst?' + Math.random(),
-            title:       'Final results',
-            header:      'You have completed the study'
-        }],
+        // iat_results_csv: [{
+        //     inherit:     'results',
+        //     name:        'iat_results_csv',
+        //     templateUrl: 'iat_results_csv.jst?' + Math.random(),
+        //     title:       'Final results',
+        //     header:      'You have completed the study'
+        // }],
 
         course_goals: [{
             inherit:     'results',
@@ -596,11 +596,11 @@ define(['managerAPI'], function(Manager) {
     API.addSequence([
         // Each set of curly braces is a page.
         {inherit: 'participation'},
-        {
+        { // Write out whether to recontact and other info from first page, uuid.
           type: 'postCsv',
           url:  'participants_csv.php',
         },
-        { // If they decline to participate scourse_goals them to thanks anyway.
+        { // If they decline to participate sends them to thanks anyway.
           mixer: 'branch',
           conditions: [
             {compare: 1, to: 'global.participation.questions.participate.response'} // figuring out that the question was in the question object and that there wasn't a participation object. Also, you can't have a . in the comparison or it won't parse correctly. I didn't try with a variable, maybe that'd fix it.
@@ -624,15 +624,17 @@ define(['managerAPI'], function(Manager) {
             {inherit: 'clinical_scenario_2_questions'},
 
             // // Demographics
-            // {inherit: 'demographics'},
+            {inherit: 'demographics'},
 
             // First IAT, for physical disabilities
-            // {inherit: 'pd_iat_instructions'},
-            // {inherit: 'pd_iat'},
+            {inherit: 'pd_iat_instructions'},
+            {inherit: 'pd_iat'},
 
             // Second IAT, for intellectual disabilities
-            // {inherit: 'id_iat_instructions'},
-            // {inherit: 'id_iat'},
+            {inherit: 'id_iat_instructions'},
+            {inherit: 'id_iat'},
+
+            {inherit: 'collect_iat_feedback'}, // Collect this immediately after IATs.
 
             // // Explaining patient-centered counseling
             {inherit: 'counseling_introduction'},
@@ -664,7 +666,7 @@ define(['managerAPI'], function(Manager) {
             {inherit: 'clinical_scenario_4_questions'},
             // {inherit: 'console_check'},
             {inherit: 'course_goals'},
-            {  // Continuing ed credit? If so display quiz
+            {  // Continuing ed credit? If so display quiz.
               mixer: 'branch',
               conditions: [
                 {compare: 1, to: 'global.participation.questions.claim_credit.response'}
@@ -865,13 +867,21 @@ define(['managerAPI'], function(Manager) {
                 },
 
                 /* Question 9 */
-                {inherit: 'continuing_ed_test_email'},
-                {inherit: 'ceu_module_evaluation'},
-                {inherit: 'ceu_identification'},
+                // {inherit: 'continuing_ed_test_email'},
+                {  // CME credit? If so, self-eval
+                  mixer: 'branch',
+                  conditions: [ // Need self-eval only for CEU, not CME.
+                    {compare: 2, to: 'global.participation.questions.which_ce_credit.response'}
+                  ],
+                  data: [
+                    {inherit: 'ceu_module_evaluation'},
+                  ]
+                }
               ],
             },
-            { inherit: 'collect_iat_feedback' },
-            {
+            // {inherit: 'ceu_identification'}, // This is already collected on participation page.
+
+            { // Get all answers to everything except summarized iat feedback.
               type: 'postCsv',
               url:  'answers_csv.php',
             },

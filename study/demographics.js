@@ -424,54 +424,54 @@ define(['questAPI', 'underscore'], function(Quest, _){
     });
 
     API.addSequence([
-        // {
-        //     inherit: 'basicPage',
-        //     questions: [
-        //         {inherit: 'age'}
-        //     ]
-        // },
-        // {
-        //     inherit: 'basicPage',
-        //     questions: [
-        //         {inherit: 'genderIdentity'}
-        //     ]
-        // },
-        // {
-        //     inherit: 'basicPage',
-        //     questions: [
-        //         {inherit: 'work_setting'}
-        //     ]
-        // },
-        // {
-        //     inherit: 'basicPage',
-        //     questions: [
-        //         {inherit: 'state'}
-        //     ]
-        // },
-        // {
-        //     inherit: 'basicPage',
-        //     questions: [{inherit: 'religionid'}]
-        // },
-        // {
-        //     inherit: 'basicPage',
-        //     questions: [{inherit: 'politicalid'}]
-        // },
-        // {
-        //     inherit: 'basicPage',
-        //     questions: [{inherit: 'termination'}]
-        // },
-        // {
-        //     inherit: 'basicPage',
-        //     questions: [{inherit: 'clinical_experience'}]
-        // },
-        // {
-        //     inherit: 'basicPage',
-        //     questions: [{inherit: 'intellectual_disability_experience'}]
-        // },
-        // {
-        //     inherit: 'basicPage',
-        //     questions: [{inherit: 'physical_disability_experience'}]
-        // },
+        {
+            inherit: 'basicPage',
+            questions: [
+                {inherit: 'age'}
+            ]
+        },
+        {
+            inherit: 'basicPage',
+            questions: [
+                {inherit: 'genderIdentity'}
+            ]
+        },
+        {
+            inherit: 'basicPage',
+            questions: [
+                {inherit: 'work_setting'}
+            ]
+        },
+        {
+            inherit: 'basicPage',
+            questions: [
+                {inherit: 'state'}
+            ]
+        },
+        {
+            inherit: 'basicPage',
+            questions: [{inherit: 'religionid'}]
+        },
+        {
+            inherit: 'basicPage',
+            questions: [{inherit: 'politicalid'}]
+        },
+        {
+            inherit: 'basicPage',
+            questions: [{inherit: 'termination'}]
+        },
+        {
+            inherit: 'basicPage',
+            questions: [{inherit: 'clinical_experience'}]
+        },
+        {
+            inherit: 'basicPage',
+            questions: [{inherit: 'intellectual_disability_experience'}]
+        },
+        {
+            inherit: 'basicPage',
+            questions: [{inherit: 'physical_disability_experience'}]
+        },
         {
             inherit:   'basicPage',
             questions: [{inherit: 'PD_uncomfortable'},

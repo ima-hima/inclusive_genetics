@@ -25,15 +25,6 @@ define(['questAPI'], function(Quest){
                     }
 
                 },
-                { // NSGC id
-                    name: 'NSGC_id',
-                    type: 'text',
-                    stem: 'NSGC user ID',
-                    required: true,
-                    errorMsg: {
-                        required: 'You must provide this information in order for us to grant CEU credit. All of your results will remain confidential.'
-                    }
-                },
             ] // end questions
         } // page ends
     ]);

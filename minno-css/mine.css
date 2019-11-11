@@ -12,6 +12,11 @@
   padding: 10px;
 }
 
+.excellent {
+  font-weight: bold;
+  color: mediumvioletred;
+}
+
 .guidance{ display: none; }
 
 h5 {
