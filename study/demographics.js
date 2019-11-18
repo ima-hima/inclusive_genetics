@@ -19,8 +19,8 @@ define(['questAPI', 'underscore'], function(Quest, _){
         autoFocus:   true,
         header:      'Part II of V: Demographics',
         numbered:    false,
-        progressBar: isTouch ? 'Page <%= pagesMeta.number %> out of 21'
-                             : 'Page <%= pagesMeta.number %> out of 21',
+        progressBar: isTouch ? 'Page <%= pagesMeta.number %> out of 13'
+                             : 'Page <%= pagesMeta.number %> out of 13',
         prev:        true,
     });
 
@@ -48,9 +48,9 @@ define(['questAPI', 'underscore'], function(Quest, _){
 
     API.addQuestionsSet('explicitBiasChoice', {
         inherit:    'singleChoice',
-        autoSubmit: false,
+        // autoSubmit: false,
         decline:    false,
-        helpText:   '',
+        // helpText:   '',
     });
 
     API.addQuestionsSet('text', {
@@ -76,7 +76,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
         buttons:  true,
         answers : [
             {text: 'Yes', value:1},
-            {text: 'No', value:0},
+            {text: 'No',  value:0},
         ]
     });
 
@@ -334,7 +334,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
 
     API.addQuestionsSet('PD_outcasts', {
         inherit: 'explicitBiasChoice',
-        name: 'ID_damaged',
+        name: 'PD_outcasts',
         stem: 'People with <em>physical disabilities</em> are often treated as outcasts.',
         answers: [
             {text: 'Strongly disagree', value: 1},
@@ -347,7 +347,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
 
      API.addQuestionsSet('PD_undesirable', {
         inherit: 'explicitBiasChoice',
-        name: 'PD_afraid',
+        name: 'PD_undesirable',
         stem: 'Most people feel that having a child with a <em>physical disability</em> is undesirable.',
         answers: [
             {text: 'Strongly disagree', value: 1},
@@ -399,7 +399,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
 
     API.addQuestionsSet('ID_outcasts', {
         inherit: 'explicitBiasChoice',
-        name: 'ID_afraid',
+        name: 'ID_outcasts',
         stem: 'People with <em>intellectual disabilities</em> are often treated as outcasts.',
         answers: [
             {text: 'Strongly disagree', value: 1},
@@ -412,7 +412,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
 
     API.addQuestionsSet('ID_undesirable', {
         inherit: 'explicitBiasChoice',
-        name: 'ID_afraid',
+        name: 'ID_undesirable',
         stem: 'Most people feel that having a child with an <em>intellectual disability</em> is undesirable.',
         answers: [
             {text: 'Strongly disagree', value: 1},
@@ -440,6 +440,12 @@ define(['questAPI', 'underscore'], function(Quest, _){
             inherit: 'basicPage',
             questions: [
                 {inherit: 'work_setting'}
+            ]
+        },
+        {
+            inherit: 'basicPage',
+            questions: [
+                {inherit: 'clinical_setting'}
             ]
         },
         {
