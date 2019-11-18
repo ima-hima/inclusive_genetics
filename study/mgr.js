@@ -598,6 +598,14 @@ define(['managerAPI'], function(Manager) {
             title:       'Thank You',
             header:      'Declined',
         }],
+
+        thanks: [{
+            inherit:     'results',
+            name:        'thanks',
+            templateUrl: 'thanks.jst?' + Math.random(),
+            title:       'Thank You',
+            header:      'Thank You',
+        }],
     });
 
 
@@ -625,8 +633,8 @@ define(['managerAPI'], function(Manager) {
             },
 
             // First clinical_scenario_, which is used to track improvement after patient-centered teaching module
-            {inherit: 'clinical_scenario_1'},
-            {inherit: 'clinical_scenario_1_questions'},
+            // {inherit: 'clinical_scenario_1'},
+            // {inherit: 'clinical_scenario_1_questions'},
 
             // {inherit: 'clinical_scenario_2'},
             // {inherit: 'clinical_scenario_2_questions'},
@@ -643,7 +651,6 @@ define(['managerAPI'], function(Manager) {
             // {inherit: 'id_iat'},
 
             // {inherit: 'collect_iat_feedback'}, // Collect this immediately after IATs.
-            {inherit: 'iat_explanation'},
 
             // Explaining patient-centered counseling
             // {inherit: 'counseling_introduction'},
@@ -668,13 +675,15 @@ define(['managerAPI'], function(Manager) {
             // {inherit: 'case_3_summary'},
 
             // // Patient-centered counseling scenarios for post–teaching module follow-up testing
-            // {inherit: 'clinical_scenario_3'},
-            // {inherit: 'clinical_scenario_3_questions'},
+            {inherit: 'clinical_scenario_3'},
+            {inherit: 'clinical_scenario_3_questions'},
 
-            // {inherit: 'clinical_scenario_4'},
-            // {inherit: 'clinical_scenario_4_questions'},
-            // // {inherit: 'console_check'},
+            {inherit: 'clinical_scenario_4'},
+            {inherit: 'clinical_scenario_4_questions'},
+            // {inherit: 'console_check'},
             {inherit: 'course_goals'},
+            {inherit: 'iat_explanation'},
+
             // {  // Continuing ed credit? If so display quiz.
             //   mixer: 'branch',
             //   conditions: [
@@ -893,7 +902,7 @@ define(['managerAPI'], function(Manager) {
             //   type: 'postCsv',
             //   url:  'answers_csv.php',
             // },
-            {inherit: 'iat_results'},
+            {inherit: 'thanks'},
           ],
           elseData:[{inherit: 'declined'}], // if they didn't participate
         },

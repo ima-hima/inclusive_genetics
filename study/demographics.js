@@ -48,8 +48,13 @@ define(['questAPI', 'underscore'], function(Quest, _){
 
     API.addQuestionsSet('explicitBiasChoice', {
         inherit:    'singleChoice',
-        // autoSubmit: false,
+        autoSubmit: false,
         decline:    false,
+        errorMsg: {
+            required: isTouch
+                ? 'Please select an answer.'
+                : 'Please select an answer.'
+        },
         // helpText:   '',
     });
 
