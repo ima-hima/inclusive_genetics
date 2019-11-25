@@ -80,10 +80,10 @@ define(['questAPI', 'underscore'], function(Quest, _){
         stem:    '<p class="excellent">That answer was incorrect. Please try again. (Final attempt)<p> \
                   A 12-week pregnant patient desires genetic testing because she is 39 years old and is concerned about the increased risk for chromosome abnormalities. What testing would you recommend?',
         answers: [
-            {text: 'Invasive testing (CVS or amniocentesis) because it will provide the most accurate information', value: 1},
-            {text: 'A screening test, such as non-invasive prenatal screening, because it will not pose a risk to her pregnancy', value: 2},
-            {text: 'I would not recommend any testing to the patient unless she would terminate an affected pregnancy', value: 3},
-            {text: 'I would first explore the patient’s goals for testing in order to help her determine which test, if any, would be helpful to her', value: 4},
+            {text: 'I would not recommend invasive testing (CVS or amniocentesis) because it will provide the most accurate information.', value: 1},
+            {text: 'I would recommend screening test, such as non-invasive prenatal screening, because it will not pose a risk to her pregnancy.', value: 2},
+            {text: 'I would not recommend any testing to the patient unless she would terminate an affected pregnancy.', value: 3},
+            {text: 'I would first explore the patient’s goals for testing in order to help her determine which test, if any, would be helpful to her.', value: 4},
         ],
     });
 

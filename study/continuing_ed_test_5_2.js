@@ -80,10 +80,10 @@ define(['questAPI', 'underscore'], function(Quest, _){
         stem:    '<p class="excellent">That answer was incorrect. Please try again. (Attempt 2 out of 3)<p> \
                   Which of the following is true regarding the role implicit bias can play in healthcare?',
         answers: [
-            {text: 'It is insurmountable and is always acted upon by the provider', value: 1},
-            {text: 'It can impact provider-patient relationships',                  value: 2},
-            {text: 'It is not relevant to clinical practice',                       value: 3},
-            {text: 'It does not impact patient health outcomes',                    value: 4},
+            {text: 'It is insurmountable and is always acted upon by the provider.', value: 1},
+            {text: 'It can impact provider-patient relationships.',                  value: 2},
+            {text: 'It is not relevant to clinical practice.',                       value: 3},
+            {text: 'It does not impact patient health outcomes.',                    value: 4},
         ],
     });
 

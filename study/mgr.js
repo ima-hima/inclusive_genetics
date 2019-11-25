@@ -633,13 +633,13 @@ define(['managerAPI'], function(Manager) {
             },
 
             // First clinical_scenario_, which is used to track improvement after patient-centered teaching module
-            // {inherit: 'clinical_scenario_1'},
-            // {inherit: 'clinical_scenario_1_questions'},
+            {inherit: 'clinical_scenario_1'},
+            {inherit: 'clinical_scenario_1_questions'},
 
-            // {inherit: 'clinical_scenario_2'},
-            // {inherit: 'clinical_scenario_2_questions'},
+            {inherit: 'clinical_scenario_2'},
+            {inherit: 'clinical_scenario_2_questions'},
 
-            // // Demographics
+            // Demographics
             {inherit: 'demographics'},
 
             // // First IAT, for physical disabilities
@@ -650,31 +650,31 @@ define(['managerAPI'], function(Manager) {
             // {inherit: 'id_iat_instructions'},
             // {inherit: 'id_iat'},
 
-            // {inherit: 'collect_iat_feedback'}, // Collect this immediately after IATs.
+            {inherit: 'collect_iat_feedback'}, // Collect this immediately after IATs.
 
             // Explaining patient-centered counseling
-            // {inherit: 'counseling_introduction'},
-            // {inherit: 'counseling_what_is_it'},
-            // {inherit: 'counseling_challenges'},
-            // {inherit: 'counseling_refs'},
+            {inherit: 'counseling_introduction'},
+            {inherit: 'counseling_what_is_it'},
+            {inherit: 'counseling_challenges'},
+            {inherit: 'counseling_refs'},
 
-            // // Patient-centered counseling scenarios for teaching
-            // {inherit: 'case_1_1'},
-            // {inherit: 'case_1_2'},
-            // {inherit: 'case_1_3'},
-            // {inherit: 'case_1_summary'},
+            // Patient-centered counseling scenarios for teaching
+            {inherit: 'case_1_1'},
+            {inherit: 'case_1_2'},
+            {inherit: 'case_1_3'},
+            {inherit: 'case_1_summary'},
 
-            // {inherit: 'case_2_1'},
-            // {inherit: 'case_2_2'},
-            // {inherit: 'case_2_3'},
-            // {inherit: 'case_2_summary'},
+            {inherit: 'case_2_1'},
+            {inherit: 'case_2_2'},
+            {inherit: 'case_2_3'},
+            {inherit: 'case_2_summary'},
 
-            // {inherit: 'case_3_1'},
-            // {inherit: 'case_3_2'},
-            // {inherit: 'case_3_3'},
-            // {inherit: 'case_3_summary'},
+            {inherit: 'case_3_1'},
+            {inherit: 'case_3_2'},
+            {inherit: 'case_3_3'},
+            {inherit: 'case_3_summary'},
 
-            // // Patient-centered counseling scenarios for post–teaching module follow-up testing
+            // Patient-centered counseling scenarios for post–teaching module follow-up testing
             {inherit: 'clinical_scenario_3'},
             {inherit: 'clinical_scenario_3_questions'},
 
@@ -684,224 +684,224 @@ define(['managerAPI'], function(Manager) {
             {inherit: 'course_goals'},
             {inherit: 'iat_explanation'},
 
-            // {  // Continuing ed credit? If so display quiz.
-            //   mixer: 'branch',
-            //   conditions: [
-            //     {compare: 1, to: 'global.participation.questions.claim_credit.response'}
-            //   ],
-            //   data: [  // now, for each question ask three times, with slightly different text.
+            {  // Continuing ed credit? If so display quiz.
+              mixer: 'branch',
+              conditions: [
+                {compare: 1, to: 'global.participation.questions.claim_credit.response'}
+              ],
+              data: [  // now, for each question ask three times, with slightly different text.
 
-            //     /* Question 1 */
-            //     {inherit: 'continuing_ed_test_1_1'},
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [
-            //          {compare: 3, to: 'global.continuing_ed_test_1_1.questions.autonomous_patient_decisions.response'},
-            //       ],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_1_2'},
-            //       ],
-            //     },
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [{
-            //          or: [
-            //            {compare: 3, to: 'global.continuing_ed_test_1_1.questions.autonomous_patient_decisions.response'},
-            //            {compare: 3, to: 'global.continuing_ed_test_1_2.questions.autonomous_patient_decisions.response'},
-            //          ]
-            //       }],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_1_3'},
-            //       ],
-            //     },
+                /* Question 1 */
+                {inherit: 'continuing_ed_test_1_1'},
+                {
+                  mixer: 'branch',
+                  conditions: [
+                     {compare: 3, to: 'global.continuing_ed_test_1_1.questions.autonomous_patient_decisions.response'},
+                  ],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_1_2'},
+                  ],
+                },
+                {
+                  mixer: 'branch',
+                  conditions: [{
+                     or: [
+                       {compare: 3, to: 'global.continuing_ed_test_1_1.questions.autonomous_patient_decisions.response'},
+                       {compare: 3, to: 'global.continuing_ed_test_1_2.questions.autonomous_patient_decisions.response'},
+                     ]
+                  }],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_1_3'},
+                  ],
+                },
 
-            //     /* Question 2 */
-            //     {inherit: 'continuing_ed_test_2_1'},
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [
-            //          {compare: 2, to: 'global.continuing_ed_test_2_1.questions.first_step_pregnant.response'},
-            //       ],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_2_2'},
-            //       ],
-            //     },
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [{
-            //          or: [
-            //            {compare: 2, to: 'global.continuing_ed_test_2_1.questions.first_step_pregnant.response'},
-            //            {compare: 2, to: 'global.continuing_ed_test_2_2.questions.first_step_pregnant.response'},
-            //          ]
-            //       }],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_2_3'},
-            //       ],
-            //     },
+                /* Question 2 */
+                {inherit: 'continuing_ed_test_2_1'},
+                {
+                  mixer: 'branch',
+                  conditions: [
+                     {compare: 2, to: 'global.continuing_ed_test_2_1.questions.first_step_pregnant.response'},
+                  ],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_2_2'},
+                  ],
+                },
+                {
+                  mixer: 'branch',
+                  conditions: [{
+                     or: [
+                       {compare: 2, to: 'global.continuing_ed_test_2_1.questions.first_step_pregnant.response'},
+                       {compare: 2, to: 'global.continuing_ed_test_2_2.questions.first_step_pregnant.response'},
+                     ]
+                  }],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_2_3'},
+                  ],
+                },
 
-            //     /* Question 3 */
-            //     {inherit: 'continuing_ed_test_3_1'},
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [
-            //          {compare: 4, to: 'global.continuing_ed_test_3_1.questions.exploring_desires.response'},
-            //       ],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_3_2'},
-            //       ],
-            //     },
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [{
-            //          or: [
-            //            {compare: 4, to: 'global.continuing_ed_test_3_1.questions.exploring_desires.response'},
-            //            {compare: 4, to: 'global.continuing_ed_test_3_2.questions.exploring_desires.response'},
-            //          ]
-            //       }],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_3_3'},
-            //       ],
-            //     },
+                /* Question 3 */
+                {inherit: 'continuing_ed_test_3_1'},
+                {
+                  mixer: 'branch',
+                  conditions: [
+                     {compare: 4, to: 'global.continuing_ed_test_3_1.questions.exploring_desires.response'},
+                  ],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_3_2'},
+                  ],
+                },
+                {
+                  mixer: 'branch',
+                  conditions: [{
+                     or: [
+                       {compare: 4, to: 'global.continuing_ed_test_3_1.questions.exploring_desires.response'},
+                       {compare: 4, to: 'global.continuing_ed_test_3_2.questions.exploring_desires.response'},
+                     ]
+                  }],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_3_3'},
+                  ],
+                },
 
-            //     /* Question 4 */
-            //     {inherit: 'continuing_ed_test_4_1'},
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [
-            //          {compare: 4, to: 'global.continuing_ed_test_4_1.questions.pregnant_patient.response'},
-            //       ],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_4_2'},
-            //       ],
-            //     },
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [{
-            //          or: [
-            //            {compare: 4, to: 'global.continuing_ed_test_4_1.questions.pregnant_patient.response'},
-            //            {compare: 4, to: 'global.continuing_ed_test_4_2.questions.pregnant_patient.response'},
-            //          ]
-            //       }],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_4_3'},
-            //       ],
-            //     },
+                /* Question 4 */
+                {inherit: 'continuing_ed_test_4_1'},
+                {
+                  mixer: 'branch',
+                  conditions: [
+                     {compare: 4, to: 'global.continuing_ed_test_4_1.questions.pregnant_patient.response'},
+                  ],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_4_2'},
+                  ],
+                },
+                {
+                  mixer: 'branch',
+                  conditions: [{
+                     or: [
+                       {compare: 4, to: 'global.continuing_ed_test_4_1.questions.pregnant_patient.response'},
+                       {compare: 4, to: 'global.continuing_ed_test_4_2.questions.pregnant_patient.response'},
+                     ]
+                  }],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_4_3'},
+                  ],
+                },
 
-            //     /* Question 5 */
-            //     {inherit: 'continuing_ed_test_5_1'},
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [
-            //          {compare: 2, to: 'global.continuing_ed_test_5_1.questions.implicit_bias.response'},
-            //       ],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_5_2'},
-            //       ],
-            //     },
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [{
-            //          or: [
-            //            {compare: 2, to: 'global.continuing_ed_test_5_1.questions.implicit_bias.response'},
-            //            {compare: 2, to: 'global.continuing_ed_test_5_2.questions.implicit_bias.response'},
-            //          ]
-            //       }],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_5_3'},
-            //       ],
-            //     },
+                /* Question 5 */
+                {inherit: 'continuing_ed_test_5_1'},
+                {
+                  mixer: 'branch',
+                  conditions: [
+                     {compare: 2, to: 'global.continuing_ed_test_5_1.questions.implicit_bias.response'},
+                  ],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_5_2'},
+                  ],
+                },
+                {
+                  mixer: 'branch',
+                  conditions: [{
+                     or: [
+                       {compare: 2, to: 'global.continuing_ed_test_5_1.questions.implicit_bias.response'},
+                       {compare: 2, to: 'global.continuing_ed_test_5_2.questions.implicit_bias.response'},
+                     ]
+                  }],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_5_3'},
+                  ],
+                },
 
-            //     /* Question 6 */
-            //     {inherit: 'continuing_ed_test_6_1'},
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [
-            //          {compare: 1, to: 'global.continuing_ed_test_6_1.questions.iat_measure.response'},
-            //       ],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_6_2'},
-            //       ],
-            //     },
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [{
-            //          or: [
-            //            {compare: 1, to: 'global.continuing_ed_test_6_1.questions.iat_measure.response'},
-            //            {compare: 1, to: 'global.continuing_ed_test_6_2.questions.iat_measure.response'},
-            //          ]
-            //       }],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_6_3'},
-            //       ],
-            //     },
+                /* Question 6 */
+                {inherit: 'continuing_ed_test_6_1'},
+                {
+                  mixer: 'branch',
+                  conditions: [
+                     {compare: 1, to: 'global.continuing_ed_test_6_1.questions.iat_measure.response'},
+                  ],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_6_2'},
+                  ],
+                },
+                {
+                  mixer: 'branch',
+                  conditions: [{
+                     or: [
+                       {compare: 1, to: 'global.continuing_ed_test_6_1.questions.iat_measure.response'},
+                       {compare: 1, to: 'global.continuing_ed_test_6_2.questions.iat_measure.response'},
+                     ]
+                  }],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_6_3'},
+                  ],
+                },
 
-            //     /* Question 7 */
-            //     {inherit: 'continuing_ed_test_7_1'},
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [
-            //          {compare: 4, to: 'global.continuing_ed_test_7_1.questions.not_in_iat.response'},
-            //       ],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_7_2'},
-            //       ],
-            //     },
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [{
-            //          or: [
-            //            {compare: 4, to: 'global.continuing_ed_test_7_1.questions.not_in_iat.response'},
-            //            {compare: 4, to: 'global.continuing_ed_test_7_2.questions.not_in_iat.response'},
-            //          ]
-            //       }],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_7_3'},
-            //       ],
-            //     },
+                /* Question 7 */
+                {inherit: 'continuing_ed_test_7_1'},
+                {
+                  mixer: 'branch',
+                  conditions: [
+                     {compare: 4, to: 'global.continuing_ed_test_7_1.questions.not_in_iat.response'},
+                  ],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_7_2'},
+                  ],
+                },
+                {
+                  mixer: 'branch',
+                  conditions: [{
+                     or: [
+                       {compare: 4, to: 'global.continuing_ed_test_7_1.questions.not_in_iat.response'},
+                       {compare: 4, to: 'global.continuing_ed_test_7_2.questions.not_in_iat.response'},
+                     ]
+                  }],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_7_3'},
+                  ],
+                },
 
-            //     /* Question 8 */
-            //     {inherit: 'continuing_ed_test_8_1'},
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [
-            //          {compare: 3, to: 'global.continuing_ed_test_8_1.questions.iat_validated.response'},
-            //       ],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_8_2'},
-            //       ],
-            //     },
-            //     {
-            //       mixer: 'branch',
-            //       conditions: [{
-            //          or: [
-            //            {compare: 3, to: 'global.continuing_ed_test_8_1.questions.iat_validated.response'},
-            //            {compare: 3, to: 'global.continuing_ed_test_8_2.questions.iat_validated.response'},
-            //          ]
-            //       }],
-            //       elseData: [
-            //         {inherit: 'continuing_ed_test_8_3'},
-            //       ],
-            //     },
+                /* Question 8 */
+                {inherit: 'continuing_ed_test_8_1'},
+                {
+                  mixer: 'branch',
+                  conditions: [
+                     {compare: 3, to: 'global.continuing_ed_test_8_1.questions.iat_validated.response'},
+                  ],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_8_2'},
+                  ],
+                },
+                {
+                  mixer: 'branch',
+                  conditions: [{
+                     or: [
+                       {compare: 3, to: 'global.continuing_ed_test_8_1.questions.iat_validated.response'},
+                       {compare: 3, to: 'global.continuing_ed_test_8_2.questions.iat_validated.response'},
+                     ]
+                  }],
+                  elseData: [
+                    {inherit: 'continuing_ed_test_8_3'},
+                  ],
+                },
 
-            //     /* Question 9 */
-            //     // {inherit: 'continuing_ed_test_email'},
-            //     {  // CME credit? If so, self-eval
-            //       mixer: 'branch',
-            //       conditions: [ // Need self-eval only for CEU, not CME.
-            //         {compare: 2, to: 'global.participation.questions.which_ce_credit.response'}
-            //       ],
-            //       data: [
-            //         {inherit: 'ceu_module_evaluation'},
-            //       ]
-            //     }
-            //   ],
-            // },
-            // // {inherit: 'ceu_identification'}, // This is already collected on participation page.
+                /* Question 9 */
+                // {inherit: 'continuing_ed_test_email'},
+                {  // CME credit? If so, self-eval
+                  mixer: 'branch',
+                  conditions: [ // Need self-eval only for CEU, not CME.
+                    {compare: 2, to: 'global.participation.questions.which_ce_credit.response'}
+                  ],
+                  data: [
+                    {inherit: 'ceu_module_evaluation'},
+                  ]
+                }
+              ],
+            },
+            // {inherit: 'ceu_identification'}, // This is already collected on participation page.
 
-            // { // Get all answers to everything except summarized iat feedback.
-            //   type: 'postCsv',
-            //   url:  'answers_csv.php',
-            // },
+            { // Get all answers to everything except summarized iat feedback.
+              type: 'postCsv',
+              url:  'answers_csv.php',
+            },
             {inherit: 'thanks'},
           ],
           elseData:[{inherit: 'declined'}], // if they didn't participate

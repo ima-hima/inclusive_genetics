@@ -80,10 +80,10 @@ define(['questAPI', 'underscore'], function(Quest, _){
         stem:    '<p class="excellent">That answer was incorrect. Please try again. (Attempt 2 out of 3)<p> \
                   Which of the following is a true statement?',
         answers: [
-            {text: 'Implicit Association Test scores predict behavior', value: 1},
-            {text: 'Implicit Association Tests are only applicable in the setting of genetic prenatal counseling', value: 2},
-            {text: 'The Implicit Association Test is a validated tool that can promote introspection and possible behavior modification', value: 3},
-            {text: 'Implicit Association Test scores always correlate with explicit bias', value: 4},
+            {text: 'Implicit Association Test scores predict behavior.', value: 1},
+            {text: 'Implicit Association Tests are only applicable in the setting of genetic prenatal counseling.', value: 2},
+            {text: 'The Implicit Association Test is a validated tool that can promote introspection and possible behavior modification.', value: 3},
+            {text: 'Implicit Association Test scores always correlate with explicit bias.', value: 4},
         ],
     });
 

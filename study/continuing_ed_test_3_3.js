@@ -80,10 +80,10 @@ define(['questAPI', 'underscore'], function(Quest, _){
         stem:    '<p class="excellent">That answer was incorrect. Please try again. (Final attempt)<p> \
                   Why is exploring patients’ desires, needs and values important in genetic counseling?',
         answers: [
-            {text: 'Depending on clinical circumstances, genetic testing may be optional', value: 1},
-            {text: 'The benefits and risks of genetic testing may depend upon unique aspects of an individual', value: 2},
-            {text: 'Risks and benefits are weighed differently by individuals',            value: 3},
-            {text: 'All of the above',                                                     value: 4},
+            {text: 'Depending on clinical circumstances, genetic testing may be optional.', value: 1},
+            {text: 'The benefits and risks of genetic testing may depend upon unique aspects of an individual.', value: 2},
+            {text: 'Risks and benefits are weighed differently by individuals.',            value: 3},
+            {text: 'All of the above',                                                      value: 4},
         ],
     });
 

@@ -80,10 +80,10 @@ define(['questAPI', 'underscore'], function(Quest, _){
         stem:    '<p class="excellent">That answer was incorrect. Please try again. (Final attempt)<p> \
                   What is the best first step to providing patient centered genetic counseling to a pregnant patient who comes to you for prenatal genetic testing?',
         answers: [
-            {text: 'Ensuring patient understands that screening blood tests are not 100% accurate', value: 1},
-            {text: 'Exploring the patient’s needs, values and desires for information',             value: 2},
-            {text: 'Ask the patient whether she would terminate a pregnancy if affected with a genetic condition',value: 3},
-            {text: 'Discuss the timing of when screening and diagnostic testing can be performed',  value: 4},
+            {text: 'Ensuring patient understands that screening blood tests are not 100% accurate',   value: 1},
+            {text: 'Exploring the patient’s needs, values and desires for information',               value: 2},
+            {text: 'Asking the patient whether she would terminate a pregnancy if affected with a genetic condition', value: 3},
+            {text: 'Discussing the timing of when screening and diagnostic testing can be performed', value: 4},
         ],
     });
 
