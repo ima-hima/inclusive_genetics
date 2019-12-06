@@ -606,6 +606,14 @@ define(['managerAPI'], function(Manager) {
             title:       'Thank You',
             header:      'Thank You',
         }],
+
+        thanks_ce: [{
+            inherit:     'results',
+            name:        'thanks_ce',
+            templateUrl: 'thanks_ce.jst?' + Math.random(),
+            title:       'Thank You',
+            header:      'Thank You',
+        }],
     });
 
 
@@ -643,12 +651,12 @@ define(['managerAPI'], function(Manager) {
             {inherit: 'demographics'},
 
             // // First IAT, for physical disabilities
-            // {inherit: 'pd_iat_instructions'},
-            // {inherit: 'pd_iat'},
+            {inherit: 'pd_iat_instructions'},
+            {inherit: 'pd_iat'},
 
             // // Second IAT, for intellectual disabilities
-            // {inherit: 'id_iat_instructions'},
-            // {inherit: 'id_iat'},
+            {inherit: 'id_iat_instructions'},
+            {inherit: 'id_iat'},
 
             {inherit: 'collect_iat_feedback'}, // Collect this immediately after IATs.
 
@@ -883,8 +891,6 @@ define(['managerAPI'], function(Manager) {
                   ],
                 },
 
-                /* Question 9 */
-                // {inherit: 'continuing_ed_test_email'},
                 {  // CME credit? If so, self-eval
                   mixer: 'branch',
                   conditions: [ // Need self-eval only for CEU, not CME.
@@ -893,7 +899,7 @@ define(['managerAPI'], function(Manager) {
                   data: [
                     {inherit: 'ceu_module_evaluation'},
                   ]
-                }
+                },
               ],
             },
             // {inherit: 'ceu_identification'}, // This is already collected on participation page.
@@ -902,7 +908,17 @@ define(['managerAPI'], function(Manager) {
               type: 'postCsv',
               url:  'answers_csv.php',
             },
-            {inherit: 'thanks'},
+            {  // now, which thanks
+              mixer: 'branch',
+              conditions: [
+                {compare: 1, to: 'global.participation.questions.claim_credit.response'} // They're looking for credit
+              ],
+              data: [ // continuing ed thanks
+                { inherit: 'thanks_ce' },
+              ],
+              // No conitnuing ed, regular thanks
+              elseData: [{inherit: 'thanks'}]
+            },
           ],
           elseData:[{inherit: 'declined'}], // if they didn't participate
         },

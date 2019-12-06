@@ -77,10 +77,10 @@ define(['questAPI', 'underscore'], function(Quest, _){
     API.addQuestionsSet('iat_measure', {
         inherit: 'singleChoice',
         name:    'iat_measure',
-        stem:    'What does the Implicit Association test measure?',
+        stem:    '<p class="excellent">That answer was incorrect. Please try again. (Attempt 2 out of 3)<p> \
+                  What does the Implicit Association test measure?',
         answers: [
-            {text: '<p class="excellent">That answer was incorrect. Please try again. (Attempt 2 out of 3)<p> \
-                  Attitudes and beliefs that people may be unwilling or unable to report', value: 1},
+            {text: 'Attitudes and beliefs that people may be unwilling or unable to report', value: 1},
             {text: 'Conscious attitudes and beliefs about a person or group',                value: 2},
             {text: 'Prejudice or unjust treatment of a person or group',                     value: 3},
             {text: 'All of the above',                                                       value: 4},
