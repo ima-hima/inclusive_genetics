@@ -78,7 +78,7 @@ define(['questAPI'], function(Quest){
         ],
       },    // end learning assessment
       {     // begin module evaluation
-        header: 'Learning assessment',
+        header: 'Teaching module assessment',
         questions: [
           {
               name: 'level-appropriate_content',
