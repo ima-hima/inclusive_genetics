@@ -131,11 +131,12 @@ define(['questAPI', 'underscore'], function(Quest, _){
             {text: 'Nurse',                   value: 5},
             {text: 'Other allied health professional', value: 6},
             {text: 'Resident',                value: 7},
-            {text: 'Medical student',         value: 8},
-            {text: 'Fellow',                  value: 9},
-            {text: 'GC student',              value: 10},
-            {text: 'Educator',                value: 11},
-            {text: 'Other',                   value:12},
+            {text: 'Medical student (preclinical)',    value: 8},
+            {text: 'Medical student (clinical)',       value: 9},
+            {text: 'Fellow',                  value: 10},
+            {text: 'GC student',              value: 11},
+            {text: 'Educator',                value: 12},
+            {text: 'Other',                   value: 13},
         ]
     });
 
