@@ -27,7 +27,7 @@ define(['questAPI'], function(Quest){
                     answers: [
                                'Strongly recommend prenatal testing',
                                'Recommend prenatal testing',
-                               'Neither recommend or discourage prenatal testing',
+                               'Offer but neither recommend or discourage prenatal testing',
                                'Discourage prenatal testing',
                                'Strongly discourage prenatal testing',
                     ],
