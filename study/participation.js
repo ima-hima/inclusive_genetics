@@ -22,7 +22,7 @@ define(['questAPI'], function(Quest){
         stem: 'Please enter your email address:',
         pattern: /[A-Z0-9\._%+-]+@[A-Z0-9\.-]{2,}\.[A-Z]{2,}/igm,
         errorMsg: {
-            required: "If you may claim continuing education credit, or if you’ve indicated that you’d like us to recontact you, you must enter your email address.",
+            required: "If you may claim continuing education credit or if you’ve indicated that you’d like us to recontact you, you must enter your email address.",
             pattern: "This is not a valid email address.",
         },
         required: true,
@@ -33,7 +33,7 @@ define(['questAPI'], function(Quest){
         numericValues: true,
         stem: 'Please enter your first name:',
         errorMsg: {
-            required: "If you may claim continuing education credit, you must enter your entire name.",
+            required: "If you may claim continuing education credit or if you’ve indicated that you’d like us to recontact you, you must enter your entire name.",
         },
         required: true,
       }],
@@ -44,7 +44,7 @@ define(['questAPI'], function(Quest){
         numericValues: true,
         stem: 'Please enter your last name:',
         errorMsg: {
-            required: "If you may claim continuing education credit, you must enter your entire name.",
+            required: "If you may claim continuing education credit or if you’ve indicated that you’d like us to recontact you, you must enter your entire name.",
         },
         required: true,
       }],
@@ -150,6 +150,8 @@ define(['questAPI'], function(Quest){
                     }],
                   data: [
                     {inherit: 'email'},
+                    {inherit: 'first_name'},
+                    {inherit: 'last_name'},
                   ],
                 },
                 {
