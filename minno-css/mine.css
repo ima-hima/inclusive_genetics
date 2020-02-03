@@ -92,3 +92,8 @@ ul {
   line-height: 1.8em;
   list-style-type: none;
 }
+
+.disclaimer {
+  color: red;
+  font-weight: bold;
+}
