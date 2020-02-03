@@ -244,11 +244,11 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name:    'termination',
         stem:    'What is your stance on termination of pregnacy?',
         answers: [
-            {text: 'Very Pro Choice (termination is acceptable for any reason) ',       value: 1},
+            {text: 'Very Pro Choice (termination is acceptable for any reason)',       value: 1},
             {text: 'Somewhat Pro Choice (termination is acceptable for some reasons)', value: 2},
-            {text: 'Neutral (not pro-choice or pro-life) ',                             value: 3},
-            {text: 'Somewhat Pro-Life (termination is not acceptable except in rare exceptions) ', value: 4},
-            {text: 'Very Pro-Life (termination is not acceptable for any reason) ',     value: 5},
+            {text: 'Neutral (not pro-choice or pro-life)',                             value: 3},
+            {text: 'Somewhat Pro-Life (termination is not acceptable except in rare exceptions)', value: 4},
+            {text: 'Very Pro-Life (termination is not acceptable for any reason)',     value: 5},
         ]
     });
 

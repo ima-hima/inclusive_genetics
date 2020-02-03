@@ -133,8 +133,6 @@ define(['questAPI'], function(Quest){
                   ],
                   data: [
                     {inherit: 'which_ce_credit'},
-                    {inherit: 'first_name'},
-                    {inherit: 'last_name'},
                   ],
                 },
                 // this question should be shown only if "other was selected"
@@ -149,9 +147,9 @@ define(['questAPI'], function(Quest){
                         ],
                     }],
                   data: [
-                    {inherit: 'email'},
                     {inherit: 'first_name'},
                     {inherit: 'last_name'},
+                    {inherit: 'email'},
                   ],
                 },
                 {
