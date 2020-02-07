@@ -591,10 +591,10 @@ define(['managerAPI'], function(Manager) {
             header:      'You have completed the study'
         }],
 
-        declined: [{
+        thanks_declined: [{
             inherit:     'results',
-            name:        'declined',
-            templateUrl: 'declined.jst?' + Math.random(),
+            name:        'thanks_declined',
+            templateUrl: 'thanks_declined.jst?' + Math.random(),
             title:       'Thank You',
             header:      'Declined',
         }],
