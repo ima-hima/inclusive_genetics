@@ -20,7 +20,7 @@ define(['questAPI'], function(Quest){
                     required: true,
                     // correct:  true,
                     // correctValue: 3,
-                    numericValues: true,
+                    // numericValues: true,
                 },
                 // { // question 2 begins
                 //     name: 'question3',
