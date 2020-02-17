@@ -74,9 +74,9 @@ define(['questAPI', 'underscore'], function(Quest, _){
      * Actual questions
      */
 
-    API.addQuestionsSet('iat_validated', {
+    API.addQuestionsSet('ceu_iat_validated', {
         inherit: 'singleChoice',
-        name:    'iat_validated',
+        name:    'ceu_iat_validated',
         stem:    '<p class="excellent">That answer was incorrect. Please try again. (Attempt 2 out of 3)<p> \
                   Which of the following is a true statement?',
         answers: [
@@ -91,7 +91,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
 
         {
             inherit: 'basicPage',
-            questions: [{inherit: 'iat_validated'}]
+            questions: [{inherit: 'ceu_iat_validated'}]
         },
     ]);
 
