@@ -30,7 +30,7 @@ define(['questAPI'], function(Quest){
       first_name: [{
         name: 'first_name',
         type: 'text',
-        numericValues: true,
+        // numericValues: true,
         stem: 'Please enter your first name:',
         errorMsg: {
             required: "If you may claim continuing education credit or if you’ve indicated that you’d like us to recontact you, you must enter your entire name.",
@@ -41,7 +41,7 @@ define(['questAPI'], function(Quest){
       last_name: [{
         name: 'last_name',
         type: 'text',
-        numericValues: true,
+        // numericValues: true,
         stem: 'Please enter your last name:',
         errorMsg: {
             required: "If you may claim continuing education credit or if you’ve indicated that you’d like us to recontact you, you must enter your entire name.",
@@ -64,8 +64,8 @@ define(['questAPI'], function(Quest){
         stem: '<h5>Participation</h5>I have read the above information, have been provided with the opportunity to have any question about this study answered, and:',
         autoSubmit: false,
         answers: [
-                     'I agree to participate',
-                     'I decline to participate',
+                   {text: 'I agree to participate',   value: 1},
+                   {text: 'I decline to participate', value: 2},
                    ],
         required: true,
         onCreate: function(log, current) {
@@ -94,13 +94,13 @@ define(['questAPI'], function(Quest){
         name:    'which_ce_credit',
         type:    'dropdown',
         answers: [
-                  {text: 'CME', value: 1},
-                  {text: 'CEU', value: 2},
+                  {text: 'CME'},
+                  {text: 'CEU'},
                  ],
         decline:       false,
         required:      true,
         autoSubmit:    false,
-        numericValues: true,
+        // numericValues: true,
         stem: 'I may claim credit for:',
         errorMsg: {
             required: "If you may claim continuing education credit, you must specify which.",
@@ -143,7 +143,7 @@ define(['questAPI'], function(Quest){
                     or: [
                          {compare: 1, to: 'current.questions.recontact.response', operator: 'in'},
                          {compare: 2, to: 'current.questions.recontact.response', operator: 'in'},
-                         {compare: 1, to: 'current.questions.claim_credit.response'},
+                         {compare: 'Yes', to: 'current.questions.claim_credit.response'},
                         ],
                     }],
                   data: [
@@ -156,7 +156,7 @@ define(['questAPI'], function(Quest){
                   remix: true,
                   mixer: 'branch',
                   conditions: [
-                    {compare: 2, to: 'current.questions.which_ce_credit.response'},
+                    {compare: 'CEU', to: 'current.questions.which_ce_credit.response'},
                   ],
                   data: [
                     {inherit: 'nsgc'},
