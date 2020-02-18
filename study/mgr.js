@@ -892,15 +892,18 @@ define(['managerAPI'], function(Manager) {
                   ],
                 },
 
-                {  // CME credit? If so, self-eval
-                  mixer: 'branch',
-                  conditions: [ // Need self-eval only for CEU, not CME.
-                    {compare: 2, to: 'global.participation.questions.which_ce_credit.response'}
-                  ],
-                  data: [
-                    {inherit: 'ce_module_evaluation'},
-                  ]
-                },
+                // {  // CME credit? If so, self-eval
+                //   mixer: 'branch',
+                //   conditions: [ // Need self-eval only for CEU, not CME.
+                //     {compare: 'CEU', to: 'global.participation.questions.which_ce_credit.response'}
+                //   ],
+                //   data: [
+                    {inherit: 'ce_module_evaluation'}, // originally this was just CME, but i'm freaked
+                                                       // that it might be CME, not least because that's
+                                                       // what's writtin in the comments above.
+                                                       
+                //   ]
+                // },
               ],
             },
             // {inherit: 'ce_identification'}, // This is already collected on participation page.
