@@ -649,37 +649,37 @@ define(['managerAPI'], function(Manager) {
             // Demographics
             {inherit: 'demographics'},
 
-            // // First IAT, for physical disabilities
-            {inherit: 'pd_iat_instructions'},
-            {inherit: 'pd_iat'},
+            // // // First IAT, for physical disabilities
+            // {inherit: 'pd_iat_instructions'},
+            // {inherit: 'pd_iat'},
 
-            // // Second IAT, for intellectual disabilities
-            {inherit: 'id_iat_instructions'},
-            {inherit: 'id_iat'},
+            // // // Second IAT, for intellectual disabilities
+            // {inherit: 'id_iat_instructions'},
+            // {inherit: 'id_iat'},
 
             {inherit: 'collect_iat_feedback'}, // Collect this immediately after IATs.
 
-            // Explaining patient-centered counseling
-            {inherit: 'counseling_introduction'},
-            {inherit: 'counseling_what_is_it'},
-            {inherit: 'counseling_challenges'},
-            {inherit: 'counseling_refs'},
+            // // Explaining patient-centered counseling
+            // {inherit: 'counseling_introduction'},
+            // {inherit: 'counseling_what_is_it'},
+            // {inherit: 'counseling_challenges'},
+            // {inherit: 'counseling_refs'},
 
-            // Patient-centered counseling scenarios for teaching
-            {inherit: 'case_1_1'},
-            {inherit: 'case_1_2'},
-            {inherit: 'case_1_3'},
-            {inherit: 'case_1_summary'},
+            // // Patient-centered counseling scenarios for teaching
+            // {inherit: 'case_1_1'},
+            // {inherit: 'case_1_2'},
+            // {inherit: 'case_1_3'},
+            // {inherit: 'case_1_summary'},
 
-            {inherit: 'case_2_1'},
-            {inherit: 'case_2_2'},
-            {inherit: 'case_2_3'},
-            {inherit: 'case_2_summary'},
+            // {inherit: 'case_2_1'},
+            // {inherit: 'case_2_2'},
+            // {inherit: 'case_2_3'},
+            // {inherit: 'case_2_summary'},
 
-            {inherit: 'case_3_1'},
-            {inherit: 'case_3_2'},
-            {inherit: 'case_3_3'},
-            {inherit: 'case_3_summary'},
+            // {inherit: 'case_3_1'},
+            // {inherit: 'case_3_2'},
+            // {inherit: 'case_3_3'},
+            // {inherit: 'case_3_summary'},
 
             // Patient-centered counseling scenarios for post–teaching module follow-up testing
             {inherit: 'clinical_scenario_3'},
@@ -688,8 +688,8 @@ define(['managerAPI'], function(Manager) {
             {inherit: 'clinical_scenario_4'},
             {inherit: 'clinical_scenario_4_questions'},
             // {inherit: 'console_check'},
-            {inherit: 'course_goals'},
-            {inherit: 'iat_explanation'},
+            // {inherit: 'course_goals'},
+            // {inherit: 'iat_explanation'},
 
             {  // Continuing ed credit? If so display quiz.
               mixer: 'branch',

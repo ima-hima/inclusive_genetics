@@ -89,7 +89,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
      * Questions
      */
     API.addQuestionsSet('age', {
-        inherit: 'text',
+        inherit: 'singleChoicedrop',
         name:    'age',
         stem:    'What is your age?',
         answers: _.range(100, 15, -1), // use underscore to create an array of years from ten years ago back to 1910
