@@ -74,9 +74,9 @@ define(['questAPI', 'underscore'], function(Quest, _){
      * Actual questions
      */
 
-    API.addQuestionsSet('implicit_bias', {
+    API.addQuestionsSet('ce_implicit_bias', {
         inherit: 'singleChoice',
-        name:    'implicit_bias',
+        name:    'ce_implicit_bias',
         stem:    'Which of the following is true regarding the role implicit bias can play in healthcare?',
         answers: [
             {text: 'It is insurmountable and is always acted upon by the provider.', value: 1},
@@ -90,7 +90,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
         {
             inherit: 'basicPage',
             questions: [
-                {inherit: 'implicit_bias'}
+                {inherit: 'ce_implicit_bias'}
             ]
         },
     ]);

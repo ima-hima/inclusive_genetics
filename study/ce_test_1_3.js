@@ -74,9 +74,9 @@ define(['questAPI', 'underscore'], function(Quest, _){
      * Actual questions
      */
 
-    API.addQuestionsSet('autonomous_patient_decisions', {
+    API.addQuestionsSet('ce_autonomous_patient_decisions', {
         inherit: 'singleChoice',
-        name:    'autonomous_patient_decisions',
+        name:    'ce_autonomous_patient_decisions',
         stem:    '<p class="excellent">That answer was incorrect. Please try again. (Final attempt)<p> \
                   Autonomous patient decision making can be promoted by all of the following, EXCEPT:',
         answers: [
@@ -91,7 +91,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
         {
             inherit: 'basicPage',
             questions: [
-                {inherit: 'autonomous_patient_decisions'}
+                {inherit: 'ce_autonomous_patient_decisions'}
             ]
         },
     ]);

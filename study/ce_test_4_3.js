@@ -74,9 +74,9 @@ define(['questAPI', 'underscore'], function(Quest, _){
      * Actual questions
      */
 
-    API.addQuestionsSet('pregnant_patient', {
+    API.addQuestionsSet('ce_pregnant_patient', {
         inherit: 'singleChoice',
-        name:    'pregnant_patient',
+        name:    'ce_pregnant_patient',
         stem:    '<p class="excellent">That answer was incorrect. Please try again. (Final attempt)<p> \
                   A 12-week pregnant patient desires genetic testing because she is 39 years old and is concerned about the increased risk for chromosome abnormalities. Using patient-centered techniques reviewed in this module, what are the best initial topics to discuss with the patient?',
         answers: [
@@ -91,7 +91,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
         {
             inherit: 'basicPage',
             questions: [
-                {inherit: 'pregnant_patient'}
+                {inherit: 'ce_pregnant_patient'}
             ]
         },
     ]);

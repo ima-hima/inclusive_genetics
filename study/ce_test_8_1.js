@@ -74,9 +74,9 @@ define(['questAPI', 'underscore'], function(Quest, _){
      * Actual questions
      */
 
-    API.addQuestionsSet('iat_validated', {
+    API.addQuestionsSet('ce_iat_validated', {
         inherit: 'singleChoice',
-        name:    'iat_validated',
+        name:    'ce_iat_validated',
         stem:    'Which of the following is a true statement?',
         answers: [
             {text: 'Implicit Association Test scores predict behavior.', value: 1},
@@ -90,7 +90,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
 
         {
             inherit: 'basicPage',
-            questions: [{inherit: 'iat_validated'}]
+            questions: [{inherit: 'ce_iat_validated'}]
         },
     ]);
 

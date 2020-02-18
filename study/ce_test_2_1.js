@@ -74,9 +74,9 @@ define(['questAPI', 'underscore'], function(Quest, _){
      * Actual questions
      */
 
-    API.addQuestionsSet('first_step_pregnant', {
+    API.addQuestionsSet('ce_first_step_pregnant', {
         inherit: 'singleChoice',
-        name:    'first_step_pregnant',
+        name:    'ce_first_step_pregnant',
         stem:    'What is the best first step to providing patient centered genetic counseling to a pregnant patient who comes to you for prenatal genetic testing?',
         answers: [
             {text: 'Ensuring patient understands that screening blood tests are not 100% accurate',   value: 1},
@@ -90,7 +90,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
         {
             inherit: 'basicPage',
             questions: [
-                {inherit: 'first_step_pregnant'}
+                {inherit: 'ce_first_step_pregnant'}
             ]
         },
     ]);
