@@ -74,9 +74,9 @@ define(['questAPI', 'underscore'], function(Quest, _){
      * Actual questions
      */
 
-    API.addQuestionsSet('not_in_iat', {
+    API.addQuestionsSet('ce_not_in_iat', {
         inherit: 'singleChoice',
-        name:    'not_in_iat',
+        name:    'ce_not_in_iat',
         stem:    '<p class="excellent">That answer was incorrect. Please try again. (Attempt 2 out of 3)<p> \
                   Which of the following is not an element of the Implicit Association Test that is used for scoring?',
         answers: [
@@ -91,7 +91,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
     API.addSequence([
         {
             inherit: 'basicPage',
-            questions: [{inherit: 'not_in_iat'}]
+            questions: [{inherit: 'ce_not_in_iat'}]
         },
     ]);
 

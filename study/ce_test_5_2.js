@@ -74,9 +74,9 @@ define(['questAPI', 'underscore'], function(Quest, _){
      * Actual questions
      */
 
-    API.addQuestionsSet('implicit_bias', {
+    API.addQuestionsSet('ce_implicit_bias', {
         inherit: 'singleChoice',
-        name:    'implicit_bias',
+        name:    'ce_implicit_bias',
         stem:    '<p class="excellent">That answer was incorrect. Please try again. (Attempt 2 out of 3)<p> \
                   Which of the following is true regarding the role implicit bias can play in healthcare?',
         answers: [
@@ -91,7 +91,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
         {
             inherit: 'basicPage',
             questions: [
-                {inherit: 'implicit_bias'}
+                {inherit: 'ce_implicit_bias'}
             ]
         },
     ]);

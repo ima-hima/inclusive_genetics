@@ -74,9 +74,9 @@ define(['questAPI', 'underscore'], function(Quest, _){
      * Actual questions
      */
 
-    API.addQuestionsSet('autonomous_patient_decisions', {
+    API.addQuestionsSet('ce_autonomous_patient_decisions', {
         inherit: 'singleChoice',
-        name:    'ceu_autonomous_patient_decisions',
+        name:    'ce_autonomous_patient_decisions',
         stem:    'Autonomous patient decision making can be promoted by all of the following, EXCEPT:',
         answers: [
             {text: 'Exploring feelings behind decision making',                       value: 1},
@@ -90,7 +90,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
         {
             inherit: 'basicPage',
             questions: [
-                {inherit: 'ceu_autonomous_patient_decisions'}
+                {inherit: 'ce_autonomous_patient_decisions'}
             ]
         },
     ]);

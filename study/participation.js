@@ -9,9 +9,8 @@ define(['questAPI'], function(Quest){
         numericValues: true,
         stem: '<h5>Continuing Ed credit</h5>I may claim CME or CEU credits for this course now or in the future:',
         autoSubmit: false,
-        answers: [
-                   'Yes',
-                   'No',
+        answers: [ {text: 'Yes'},
+                   {text: 'No'},
                  ],
         required: true,
       }],
@@ -143,7 +142,7 @@ define(['questAPI'], function(Quest){
                     or: [
                          {compare: 1, to: 'current.questions.recontact.response', operator: 'in'},
                          {compare: 2, to: 'current.questions.recontact.response', operator: 'in'},
-                         {compare: 'Yes', to: 'current.questions.claim_credit.response'},
+                         {compare: 1, to: 'current.questions.claim_credit.response'},
                         ],
                     }],
                   data: [

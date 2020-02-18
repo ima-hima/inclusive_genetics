@@ -74,9 +74,9 @@ define(['questAPI', 'underscore'], function(Quest, _){
      * Actual questions
      */
 
-    API.addQuestionsSet('iat_measure', {
+    API.addQuestionsSet('ce_iat_measure', {
         inherit: 'singleChoice',
-        name:    'iat_measure',
+        name:    'ce_iat_measure',
         stem:    'What does the Implicit Association test measure?',
         answers: [
             {text: 'Attitudes and beliefs that people may be unwilling or unable to report', value: 1},
@@ -89,7 +89,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
     API.addSequence([
         {
             inherit: 'basicPage',
-            questions: [{inherit: 'iat_measure'}]
+            questions: [{inherit: 'ce_iat_measure'}]
         },
     ]);
 

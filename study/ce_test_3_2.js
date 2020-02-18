@@ -74,9 +74,9 @@ define(['questAPI', 'underscore'], function(Quest, _){
      * Actual questions
      */
 
-    API.addQuestionsSet('exploring_desires', {
+    API.addQuestionsSet('ce_exploring_desires', {
         inherit: 'singleChoice',
-        name:    'exploring_desires',
+        name:    'ce_exploring_desires',
         stem:    '<p class="excellent">That answer was incorrect. Please try again. (Attempt 2 out of 3)<p> \
                   Why is exploring patients’ desires, needs and values important in genetic counseling?',
         answers: [
@@ -92,7 +92,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
         {
             inherit: 'basicPage',
             questions: [
-                {inherit: 'exploring_desires'}
+                {inherit: 'ce_exploring_desires'}
             ]
         },
     ]);
