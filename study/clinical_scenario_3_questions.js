@@ -6,7 +6,7 @@ define(['questAPI'], function(Quest){
             header: '<p style="font-weight: 400; font-size: 15px; color: black; line-height: 1.4em; width: 75%;">A couple, Mr. and Mrs. H, was referred to you for a prenatal counseling session at 12 weeks gestation because they were both found to be carriers of ataxia telangiectasia (AT) through expanded carrier screening ordered by Mrs. H’s obstetrician. AT is a condition characterized by childhood onset movement problems called ataxia. They can have difficulty walking and with balance, chorea, and neuropathy. The movement problems typically cause people to require wheelchair assistance by adolescence. They can also have a weakened immune system and an increased risk for cancer. The phenotype typically presents only with physical aspects to the condition. The lifespan varies greatly, but individuals typically survive into early adulthood. When both parents are carriers, each pregnancy has a 25% risk to be affected.</p> Select an answer from the choices below',
             questions: [
                 { // question 1 begins
-                    name: 'question1',
+                    name: 'AT terminate',
                     type: 'selectOne',
                     stem: 'The couple tells you they would terminate the pregnancy if the fetus was found to have AT. If you were the patient’s healthcare provider, how would you counsel the couple about testing?',
                     autoSubmit: false,
@@ -19,10 +19,10 @@ define(['questAPI'], function(Quest){
                     ],
                     required: true,
                     correct:  false,
-                    numericValues: true,
+                    // numericValues: true,
                 },
                 { // question 2 begins
-                    name: 'question3',
+                    name: 'AT not terminate',
                     type: 'selectOne',
                     stem: 'The parents tells you they would NOT terminate the pregnancy, regardless of the results. If you were the patient’s healthcare provider, how would you counsel the couple about testing?',
                     autoSubmit: false,
@@ -36,7 +36,7 @@ define(['questAPI'], function(Quest){
                     required: true,
                 },
                 { // question 3 begins
-                    name: 'question4',
+                    name: 'AT personal testing',
                     type: 'selectOne',
                     stem: 'If you were personally the patient, would you get prenatal genetic testing for AT?',
                     autoSubmit: false,
@@ -50,7 +50,7 @@ define(['questAPI'], function(Quest){
                     required: true,
                 },
                 { // question 4 begins
-                    name: 'question5',
+                    name: 'AT personal terminate',
                     type: 'selectOne',
                     stem: 'If you were personally the patient, would you seek to terminate the pregnancy based on the results?',
                     autoSubmit: false,
@@ -64,7 +64,7 @@ define(['questAPI'], function(Quest){
                     required: true,
                 },
                 { // question 5 begins
-                    name: 'question6',
+                    name: 'AT influence',
                     type: 'selectOne',
                     stem: 'The impact AT has on physical abilities has had the following influence on my above decisions:',
                     autoSubmit: false,

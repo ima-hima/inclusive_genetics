@@ -1,4 +1,4 @@
-define(['pipAPI','https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.2.1/stiat/stiat6.js?' + Math.random()], function(APIConstructor, stiatExtension){
+define(['pipAPI','minno-tasks/stiat/stiat6.js?' + Math.random()], function(APIConstructor, stiatExtension){
   var API    = new APIConstructor();
   var global = API.getGlobal();
 
