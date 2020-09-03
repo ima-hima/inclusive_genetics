@@ -1,0 +1,24 @@
+{
+  "name": "minno-gendocs",
+  "version": "1.0.4",
+  "description": "create docs for minnojs",
+  "main": "index.js",
+  "bin": "./bin/gendocs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minnojs/minno-gendocs.git"
+  },
+  "author": "eladzlot@github.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/minnojs/minno-gendocs/issues"
+  },
+  "homepage": "https://github.com/minnojs/minno-gendocs#readme",
+  "dependencies": {
+    "fs-extra": "^2.0.0",
+    "marked": "^0.3.6"
+  }
+}
