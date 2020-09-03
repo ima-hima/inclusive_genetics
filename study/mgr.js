@@ -8,7 +8,7 @@ define(['managerAPI'], function(Manager) {
     API.addSettings('skin', 'simple');
 
     var mediaURL = './study/media/';  // where the images are stored on the server
-    var timeURL  = '//cdn.jsdelivr.net/gh/minnojs/minno-time@0.3/dist/js';
+    var timeURL  = 'minno-time/dist/js';
 
     API.addGlobal({
         id_iat: {},
@@ -648,13 +648,16 @@ define(['managerAPI'], function(Manager) {
             {inherit: 'clinical_scenario_2'},
             {inherit: 'clinical_scenario_2_questions'},
 
-            // Demographics
+            // // Demographics
             {inherit: 'demographics'},
 
             // First IAT, for physical disabilities
             {inherit: 'pd_iat_instructions'},
             {inherit: 'pd_iat'},
 
+            // Second IAT, for intellectual disabilities
+            {inherit: 'id_iat_instructions'},
+            {inherit: 'id_iat'},
             // Second IAT, for intellectual disabilities
             {inherit: 'id_iat_instructions'},
             {inherit: 'id_iat'},
@@ -924,7 +927,7 @@ define(['managerAPI'], function(Manager) {
               elseData: [{inherit: 'thanks'}]
             },
           ],
-          elseData:[{inherit: 'declined'}], // if they didn't participate
+          elseData:[{inherit: 'thanks_declined'}], // if they didn't participate
         },
     ]);
     return API.script;
