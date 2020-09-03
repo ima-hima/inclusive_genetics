@@ -648,16 +648,13 @@ define(['managerAPI'], function(Manager) {
             {inherit: 'clinical_scenario_2'},
             {inherit: 'clinical_scenario_2_questions'},
 
-            // // Demographics
+            // Demographics
             {inherit: 'demographics'},
 
             // First IAT, for physical disabilities
             {inherit: 'pd_iat_instructions'},
             {inherit: 'pd_iat'},
 
-            // Second IAT, for intellectual disabilities
-            {inherit: 'id_iat_instructions'},
-            {inherit: 'id_iat'},
             // Second IAT, for intellectual disabilities
             {inherit: 'id_iat_instructions'},
             {inherit: 'id_iat'},
