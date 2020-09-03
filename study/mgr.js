@@ -8,7 +8,7 @@ define(['managerAPI'], function(Manager) {
     API.addSettings('skin', 'simple');
 
     var mediaURL = './study/media/';  // where the images are stored on the server
-    var timeURL  = '//cdn.jsdelivr.net/gh/minnojs/minno-time@0.3/dist/js';
+    var timeURL  = 'minno-time/dist/js';
 
     API.addGlobal({
         id_iat: {},
@@ -924,7 +924,7 @@ define(['managerAPI'], function(Manager) {
               elseData: [{inherit: 'thanks'}]
             },
           ],
-          elseData:[{inherit: 'declined'}], // if they didn't participate
+          elseData:[{inherit: 'thanks_declined'}], // if they didn't participate
         },
     ]);
     return API.script;

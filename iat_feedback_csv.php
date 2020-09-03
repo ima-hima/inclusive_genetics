@@ -5,7 +5,7 @@
     // $entityBody = '{"header":"uuid, pd iat, id iat","uuid":"0.8662154812092789"}';
     $entityBody = file_get_contents('php://input') . "\n";
 
-    // make sure results exists and is not accessable from the web
+    // make sure results exists and is not accessible from the web
     if (!is_dir("results/feedback")) {
         if (!@mkdir("results/feedback")) {
             $error = error_get_last();

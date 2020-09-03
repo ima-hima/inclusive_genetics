@@ -3,7 +3,7 @@
     $_session_id = sha1(microtime().$_SERVER['REMOTE_ADDR']);
     $entityBody  = file_get_contents('php://input')."\n";
 
-    // make sure results exists and is not accessable from the web
+    // make sure results exists and is not accessible from the web
     if (!is_dir("results/answers")) {
         if (!@mkdir("results/answers")) {
             $error = error_get_last();
