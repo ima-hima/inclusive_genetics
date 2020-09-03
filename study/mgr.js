@@ -642,46 +642,49 @@ define(['managerAPI'], function(Manager) {
             },
 
             // First clinical_scenario_, which is used to track improvement after patient-centered teaching module
-            // {inherit: 'clinical_scenario_1'},
-            // {inherit: 'clinical_scenario_1_questions'},
+            {inherit: 'clinical_scenario_1'},
+            {inherit: 'clinical_scenario_1_questions'},
 
-            // {inherit: 'clinical_scenario_2'},
-            // {inherit: 'clinical_scenario_2_questions'},
+            {inherit: 'clinical_scenario_2'},
+            {inherit: 'clinical_scenario_2_questions'},
 
             // // Demographics
-            // {inherit: 'demographics'},
+            {inherit: 'demographics'},
 
-            // // First IAT, for physical disabilities
+            // First IAT, for physical disabilities
             {inherit: 'pd_iat_instructions'},
             {inherit: 'pd_iat'},
 
-            // // Second IAT, for intellectual disabilities
-            // {inherit: 'id_iat_instructions'},
-            // {inherit: 'id_iat'},
+            // Second IAT, for intellectual disabilities
+            {inherit: 'id_iat_instructions'},
+            {inherit: 'id_iat'},
+            // Second IAT, for intellectual disabilities
+            {inherit: 'id_iat_instructions'},
+            {inherit: 'id_iat'},
 
             {inherit: 'collect_iat_feedback'}, // Collect this immediately after IATs.
 
             // Explaining patient-centered counseling
-            // {inherit: 'counseling_introduction'},
-            // {inherit: 'counseling_what_is_it'},
-            // {inherit: 'counseling_challenges'},
-            // {inherit: 'counseling_refs'},
+            {inherit: 'counseling_introduction'},
+            {inherit: 'counseling_what_is_it'},
+            {inherit: 'counseling_challenges'},
+            {inherit: 'counseling_refs'},
 
-            // // Patient-centered counseling scenarios for teaching
-            // {inherit: 'case_1_1'},
-            // {inherit: 'case_1_2'},
-            // {inherit: 'case_1_3'},
-            // {inherit: 'case_1_summary'},
+            // Patient-centered counseling scenarios for teaching
+            {inherit: 'case_1_1'},
+            {inherit: 'case_1_2'},
+            {inherit: 'case_1_3'},
+            {inherit: 'case_1_summary'},
 
-            // {inherit: 'case_2_1'},
-            // {inherit: 'case_2_2'},
-            // {inherit: 'case_2_3'},
-            // {inherit: 'case_2_summary'},
+            {inherit: 'case_2_1'},
+            {inherit: 'case_2_2'},
+            {inherit: 'case_2_3'},
+            {inherit: 'case_2_summary'},
 
-            // {inherit: 'case_3_1'},
-            // {inherit: 'case_3_2'},
-            // {inherit: 'case_3_3'},
-            // {inherit: 'case_3_summary'},
+            {inherit: 'case_3_1'},
+            {inherit: 'case_3_2'},
+            {inherit: 'case_3_3'},
+            {inherit: 'case_3_summary'},
 
             // Patient-centered counseling scenarios for post–teaching module follow-up testing
             {inherit: 'clinical_scenario_3'},
