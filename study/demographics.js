@@ -36,7 +36,7 @@ define(['questAPI', 'underscore'], function(Quest, _){
                 : 'Please select an answer, or click \'Decline to Answer\''
         },
         autoSubmit:    true,
-        numericValues: false,
+        numericValues: true,
     });
 
     API.addQuestionsSet('singleChoice', {
@@ -80,8 +80,8 @@ define(['questAPI', 'underscore'], function(Quest, _){
         type:     'selectOne',
         buttons:  true,
         answers : [
-            {text: 'Yes', }, // value:1},
-            {text: 'No',  }, // value:0},
+            {text: 'Yes', value:1},
+            {text: 'No',  value:0},
         ]
     });
 
@@ -100,10 +100,10 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name:    'genderIdentity',
         stem:    'What is your current gender identity?',
         answers: [
-            {text: 'Male',                 }, //value: 1},
-            {text: 'Female',               }, //value: 2},
-            {text: 'Nonbinary',            }, //value: 3},
-            {text: 'Prefer not to answer', }, //value: 4},
+            {text: 'Male',                 value: 1},
+            {text: 'Female',               value: 2},
+            {text: 'Nonbinary',            value: 3},
+            {text: 'Prefer not to answer', value: 4},
         ]
     });
 
@@ -112,10 +112,10 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name:    'work_setting',
         stem:    'What is your work setting?',
         answers: [
-            {text: 'Clinical laboratory',     }, //value: 1},
-            {text: 'Clinical patient-facing', }, //value: 2},
-            {text: 'Research',                }, //value: 3},
-            {text: 'Other',                   }, //value: 4},
+            {text: 'Clinical laboratory',     value: 1},
+            {text: 'Clinical patient-facing', value: 2},
+            {text: 'Research',                value: 3},
+            {text: 'Other',                   value: 4},
         ]
     });
 
@@ -124,19 +124,19 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name:    'clinical_setting',
         stem:    'What is your role in a clinical setting?',
         answers: [
-            {text: 'N/A',                     }, //value: 1},
-            {text: 'MD (medical geneticist)', }, //value: 2},
-            {text: 'MD (other)',              }, //value: 3},
-            {text: 'Genetic counselor',       }, //value: 4},
-            {text: 'Nurse',                   }, //value: 5},
-            {text: 'Other allied health professional', }, //value: 6},
-            {text: 'Resident',                }, //value: 7},
-            {text: 'Medical student (preclinical)',    }, //value: 8},
-            {text: 'Medical student (clinical)',       }, //value: 9},
-            {text: 'Fellow',                  }, //value: 10},
-            {text: 'GC student',              }, //value: 11},
-            {text: 'Educator',                }, //value: 12},
-            {text: 'Other',                   }, //value: 13},
+            {text: 'N/A',                     value: 1},
+            {text: 'MD (medical geneticist)', value: 2},
+            {text: 'MD (other)',              value: 3},
+            {text: 'Genetic counselor',       value: 4},
+            {text: 'Nurse',                   value: 5},
+            {text: 'Other allied health professional', value: 6},
+            {text: 'Resident',                value: 7},
+            {text: 'Medical student (preclinical)',    value: 8},
+            {text: 'Medical student (clinical)',       value: 9},
+            {text: 'Fellow',                  value: 10},
+            {text: 'GC student',              value: 11},
+            {text: 'Educator',                value: 12},
+            {text: 'Other',                   value: 13},
         ]
     });
 
@@ -218,10 +218,10 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name:    'religionid',
         stem:    'How religious do you consider yourself to be?',
         answers: [
-            {text: 'Very religious',       }, //value: 1},
-            {text: 'Somewhat religious',   }, //value: 2},
-            {text: 'Not very religious',   }, //value: 3},
-            {text: 'Not at all religious', }, //value: 4},
+            {text: 'Very religious',       value: 1},
+            {text: 'Somewhat religious',   value: 2},
+            {text: 'Not very religious',   value: 3},
+            {text: 'Not at all religious', value: 4},
         ]
     });
 
@@ -230,12 +230,12 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name:    'politicalid',
         stem:    'What is your political identity?',
         answers: [
-            {text: 'Very Conservative', }, //value: 1},
-            {text: 'Conservative',      }, //value: 2},
-            {text: 'Moderate',          }, //value: 3},
-            {text: 'Liberal',           }, //value: 4},
-            {text: 'Very Liberal',      }, //value: 5},
-            {text: 'Other',             }, //value: 6},
+            {text: 'Very Conservative', value: 1},
+            {text: 'Conservative',      value: 2},
+            {text: 'Moderate',          value: 3},
+            {text: 'Liberal',           value: 4},
+            {text: 'Very Liberal',      value: 5},
+            {text: 'Other',             value: 6},
         ]
     });
 
@@ -244,11 +244,11 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name:    'termination',
         stem:    'What is your stance on termination of pregnacy?',
         answers: [
-            {text: 'Very Pro Choice (termination is acceptable for any reason)',       }, //value: 1},
-            {text: 'Somewhat Pro Choice (termination is acceptable for some reasons)', }, //value: 2},
-            {text: 'Neutral (not pro-choice or pro-life)',                             }, //value: 3},
-            {text: 'Somewhat Pro-Life (termination is not acceptable except in rare exceptions)', }, //value: 4},
-            {text: 'Very Pro-Life (termination is not acceptable for any reason)',     }, //value: 5},
+            {text: 'Very Pro Choice (termination is acceptable for any reason)',       value: 1},
+            {text: 'Somewhat Pro Choice (termination is acceptable for some reasons)', value: 2},
+            {text: 'Neutral (not pro-choice or pro-life)',                             value: 3},
+            {text: 'Somewhat Pro-Life (termination is not acceptable except in rare exceptions)', value: 4},
+            {text: 'Very Pro-Life (termination is not acceptable for any reason)',     value: 5},
         ]
     });
 
@@ -257,10 +257,10 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name:    'clinical_experience',
         stem:    'Please describe your level of clinical experience counseling pregnant patients about prenatal genetic testing.',
         answers: [
-            {text: 'Very experienced',       }, //value: 1},
-            {text: 'Somewhat experienced',   }, //value: 2},
-            {text: 'Not very experienced',   }, //value: 3},
-            {text: 'Not at all experienced', }, //value: 4},
+            {text: 'Very experienced',       value: 1},
+            {text: 'Somewhat experienced',   value: 2},
+            {text: 'Not very experienced',   value: 3},
+            {text: 'Not at all experienced', value: 4},
         ]
     });
 
@@ -269,14 +269,14 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name:    'intellectual_disability_experience',
         stem:    'Please select relevant experiences you have had with someone with an <strong>intellectual disability (ID)</strong>. Multiple choices are allowed.',
         answers: [
-            {text: 'Personal history of ID',              }, //value: 1},
-            {text: 'Family member with ID',               }, //value: 2},
-            {text: 'Friend with ID',                      }, //value: 3},
-            {text: 'Volunteer with individuals with ID',  }, //value: 4},
-            {text: 'Professional experiences',            }, //value: 5},
-            {text: 'Experiences during medical training', }, //value: 6},
-            {text: 'None',  }, //value: 7},
-            {text: 'Other', }, //value: 8},
+            {text: 'Personal history of ID',              value: 1},
+            {text: 'Family member with ID',               value: 2},
+            {text: 'Friend with ID',                      value: 3},
+            {text: 'Volunteer with individuals with ID',  value: 4},
+            {text: 'Professional experiences',            value: 5},
+            {text: 'Experiences during medical training', value: 6},
+            {text: 'None',  value: 7},
+            {text: 'Other', value: 8},
         ]
     });
 
@@ -285,14 +285,14 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name: 'physical_disability_experience',
         stem: 'Please select relevant experiences you have had with someone with a <strong>physical disability (PD)</strong>. Multiple choices are allowed.',
         answers: [
-            {text: 'Personal history of PD',              }, //value: 1},
-            {text: 'Family member with PD',               }, //value: 2},
-            {text: 'Friend with PD',                      }, //value: 3},
-            {text: 'Volunteer with individuals with PD',  }, //value: 4},
-            {text: 'Professional experiences',            }, //value: 5},
-            {text: 'Experiences during medical training', }, //value: 6},
-            {text: 'None',  }, //value: 7},
-            {text: 'Other', }, //value: 8},
+            {text: 'Personal history of PD',              value: 1},
+            {text: 'Family member with PD',               value: 2},
+            {text: 'Friend with PD',                      value: 3},
+            {text: 'Volunteer with individuals with PD',  value: 4},
+            {text: 'Professional experiences',            value: 5},
+            {text: 'Experiences during medical training', value: 6},
+            {text: 'None',  value: 7},
+            {text: 'Other', value: 8},
         ]
     });
 
@@ -304,11 +304,11 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name: 'PD_uncomfortable',
         stem: 'Most people are uncomfortable around a child with a <em>physical disability</em>.',
         answers: [
-            {text: 'Strongly disagree', }, //value: 1},
-            {text: 'Disagree',          }, //value: 2},
-            {text: 'Neutral',           }, //value: 3},
-            {text: 'Agree',             }, //value: 4},
-            {text: 'Strongly agree',    }, //value: 5},
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
         ]
     });
 
@@ -317,11 +317,11 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name: 'PD_ignored',
         stem: 'The good characteristics of a child with a <em>physical disability</em> tend to be ignored.',
         answers: [
-            {text: 'Strongly disagree', }, //value: 1},
-            {text: 'Disagree',          }, //value: 2},
-            {text: 'Neutral',           }, //value: 3},
-            {text: 'Agree',             }, //value: 4},
-            {text: 'Strongly agree',    }, //value: 5},
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
         ]
     });
 
@@ -330,11 +330,11 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name: 'PD_impairment',
         stem: 'Most children with a <em>physical disability</em> are extremely impaired and cannot live independently as adults.',
         answers: [
-            {text: 'Strongly disagree', }, //value: 1},
-            {text: 'Disagree',          }, //value: 2},
-            {text: 'Neutral',           }, //value: 3},
-            {text: 'Agree',             }, //value: 4},
-            {text: 'Strongly agree',    }, //value: 5},
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
         ]
     });
 
@@ -343,11 +343,11 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name: 'PD_outcasts',
         stem: 'People with <em>physical disabilities</em> are often treated as outcasts.',
         answers: [
-            {text: 'Strongly disagree', }, //value: 1},
-            {text: 'Disagree',          }, //value: 2},
-            {text: 'Neutral',           }, //value: 3},
-            {text: 'Agree',             }, //value: 4},
-            {text: 'Strongly agree',    }, //value: 5},
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
         ]
      });
 
@@ -356,11 +356,11 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name: 'PD_undesirable',
         stem: 'Most people feel that having a child with a <em>physical disability</em> is undesirable.',
         answers: [
-            {text: 'Strongly disagree', }, //value: 1},
-            {text: 'Disagree',          }, //value: 2},
-            {text: 'Neutral',           }, //value: 3},
-            {text: 'Agree',             }, //value: 4},
-            {text: 'Strongly agree',    }, //value: 5},
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
         ]
     });
 
@@ -369,11 +369,11 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name: 'ID_uncomfortable',
         stem: 'Most people are uncomfortable around a child with an <em>intellectual disability</em>.',
         answers: [
-            {text: 'Strongly disagree', }, //value: 1},
-            {text: 'Disagree',          }, //value: 2},
-            {text: 'Neutral',           }, //value: 3},
-            {text: 'Agree',             }, //value: 4},
-            {text: 'Strongly agree',    }, //value: 5},
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
         ]
     });
 
@@ -382,11 +382,11 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name: 'ID_ignored',
         stem: 'The good characteristics of a child with an <em>intellectual disability</em> tend to be ignored.',
         answers: [
-            {text: 'Strongly disagree', }, //value: 1},
-            {text: 'Disagree',          }, //value: 2},
-            {text: 'Neutral',           }, //value: 3},
-            {text: 'Agree',             }, //value: 4},
-            {text: 'Strongly agree',    }, //value: 5},
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
         ]
     });
 
@@ -395,11 +395,11 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name: 'ID_impairment',
         stem: 'Most children with an <em>intellectual disability</em> are extremely impaired and cannot live independently as adults.',
         answers: [
-            {text: 'Strongly disagree', }, //value: 1},
-            {text: 'Disagree',          }, //value: 2},
-            {text: 'Neutral',           }, //value: 3},
-            {text: 'Agree',             }, //value: 4},
-            {text: 'Strongly agree',    }, //value: 5},
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
         ]
     });
 
@@ -408,11 +408,11 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name: 'ID_outcasts',
         stem: 'People with <em>intellectual disabilities</em> are often treated as outcasts.',
         answers: [
-            {text: 'Strongly disagree', }, //value: 1},
-            {text: 'Disagree',          }, //value: 2},
-            {text: 'Neutral',           }, //value: 3},
-            {text: 'Agree',             }, //value: 4},
-            {text: 'Strongly agree',    }, //value: 5},
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
         ]
     });
 
@@ -421,11 +421,11 @@ define(['questAPI', 'underscore'], function(Quest, _){
         name: 'ID_undesirable',
         stem: 'Most people feel that having a child with an <em>intellectual disability</em> is undesirable.',
         answers: [
-            {text: 'Strongly disagree', }, //value: 1},
-            {text: 'Disagree',          }, //value: 2},
-            {text: 'Neutral',           }, //value: 3},
-            {text: 'Agree',             }, //value: 4},
-            {text: 'Strongly agree',    }, //value: 5},
+            {text: 'Strongly disagree', value: 1},
+            {text: 'Disagree',          value: 2},
+            {text: 'Neutral',           value: 3},
+            {text: 'Agree',             value: 4},
+            {text: 'Strongly agree',    value: 5},
         ]
     });
 
