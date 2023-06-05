@@ -399,6 +399,14 @@ define(['managerAPI'], function(Manager) {
             title:       'Thank You',
             header:      'Thank You',
         }],
+
+        welcome: [{
+            inherit:     'instructions',
+            name:        'welcom',
+            templateUrl: 'welcome.jst?' + Math.random(),
+            title:       'Welcome to Inclusive Genetics',
+            header:      'Welcome to Inclusive Genetics',
+        }],
     });
 
 
@@ -416,7 +424,9 @@ define(['managerAPI'], function(Manager) {
         //     {compare: 1, to: 'global.participation.questions.participate.response'} // figuring out that the question was in the question object and that there wasn't a participation object. Also, you can't have a . in the comparison or it won't parse correctly. I didn't try with a variable, maybe that'd fix it.
         //   ],
         //   data: [
-            // clinical scenarios
+
+        {inherit: 'welcome'},
+        // clinical scenarios
         {inherit: 'clinical_scenario_1'},
         {inherit: 'clinical_scenario_1_questions'},
 
