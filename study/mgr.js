@@ -18,7 +18,7 @@ define(['managerAPI'], function(Manager) {
         idLabel:      'Intellectually disabled',
         pdLabel:      'Physically disabled',
         ableLabel:    'Abled persons',
-        disableLabel: 'Disbled persons',
+        disableLabel: 'Disabled persons',
 
         posWords:  API.shuffle([
             'Lovely',
