@@ -26,7 +26,7 @@
   "bugs": "https://github.com/minnojs/minno-time/issues",
   "author": "Elad Zlotnick",
   "devDependencies": {
-    "eslint": "^3.19.0",
+    "eslint": "^8.38.0",
     "http-server": "^14.1.1",
     "marked": "~4.0.10",
     "minno-gendocs": "^1.0.2",
