@@ -1,4 +1,4 @@
-FROM public.ecr.aws/bostonuniversity/php-fpm-app:php7.3-latest
+FROM public.ecr.aws/bostonuniversity/php-fpm-app:php8.5-latest
 
 ADD ./ /var/www/html/dbin/project-inclusive/
 
